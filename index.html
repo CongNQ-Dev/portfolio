@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyen Quoc Cong — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #111111;
+      --black2: #1a1a1a;
+      --orange: #f5a623;
+      --white: #ffffff;
+      --gray: #888888;
+      --lightgray: #cccccc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 48px;
+    }
+
+    .nav-logo {
+      width: 40px; height: 40px;
+      background: var(--white);
+      color: var(--black);
+      font-weight: 900;
+      font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 4px;
+      letter-spacing: -1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 52px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--orange); }
+
+    /* ── HERO ── */
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 15vw;
+      position: relative;
+    }
+
+    /* left sidebar — socials */
+    .sidebar-left {
+      position: absolute;
+      left: 48px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-left a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .sidebar-left a:hover { color: var(--orange); }
+
+    .sidebar-left svg { width: 24px; height: 24px; fill: currentColor; }
+
+    /* right sidebar — scroll */
+    .sidebar-right {
+      position: absolute;
+      right: 32px;
+      bottom: 80px;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--gray);
+      text-transform: uppercase;
+    }
+
+    /* years badge */
+    .years-badge {
+      font-size: 13px;
+      color: var(--orange);
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .years-badge span { font-size: 36px; font-weight: 900; color: var(--white); }
+
+    /* hi line */
+    .hi-line {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 12px;
+    }
+
+    .hi-line p {
+      color: var(--gray);
+      font-size: 22px;
+      font-weight: 300;
+      white-space: nowrap;
+    }
+
+    .hi-line::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--orange);
+    }
+
+    .hero-name {
+      font-size: clamp(60px, 8vw, 110px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 800;
+      color: var(--orange);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    /* version */
+    .version {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gray);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 100px 15vw;
+    }
+
+    .section-label {
+      font-size: 13px;
+      color: var(--orange);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 900;
+      margin-bottom: 60px;
+      line-height: 1.1;
+    }
+
+    /* ── SKILLS ── */
+    .skills-header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .skills-years {
+      font-size: 13px;
+      color: var(--orange);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .skills-years strong {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--white);
+      margin-right: 6px;
+    }
+
+    .skills-main-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0 24px;
+    }
+
+    .skill-group h3 {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--lightgray);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .skill-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .skill-icon img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ── PROJECTS ── */
+    #projects {
+      padding: 100px 0;
+    }
+
+    .projects-header {
+      text-align: center;
+      padding: 0 15vw;
+      margin-bottom: 60px;
+    }
+
+    .projects-header .section-label {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 4px;
+    }
+
+    .projects-header p {
+      font-size: 20px;
+      color: var(--lightgray);
+      font-weight: 300;
+    }
+
+    /* Project filter tabs */
+    .project-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 32px;
+    }
+
+    .tab-btn {
+      padding: 8px 24px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--gray);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .tab-btn:first-child { border-radius: 20px 0 0 20px; }
+    .tab-btn:last-child { border-radius: 0 20px 20px 0; border-left: none; }
+
+    .tab-btn.active {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--black);
+    }
+
+    .tab-btn:hover:not(.active) { color: var(--white); }
+
+    /* Project cards */
+    .project-card {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 0 8vw 24px;
+      background: #161616;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover { border-color: rgba(245, 166, 35, 0.3); }
+
+    .project-info {
+      padding: 48px 52px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .project-tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .project-name {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .project-desc {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      max-width: 480px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tech-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      color: var(--lightgray);
+      border: 1px solid rgba(255,255,255,0.1);
+      letter-spacing: 0.5px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .proj-link {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .proj-link:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--black);
+    }
+
+    .project-visual {
+      width: 380px;
+      min-height: 300px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+      background: #161616;
+    }
+
+    .project-visual.v1 { background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 100%); }
+    .project-visual.v2 { background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%); }
+    .project-visual.v3 { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); }
+    .project-visual.v4 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+    .project-visual.v5 { background: linear-gradient(135deg, #2d0b00 0%, #7b2d00 100%); }
+    .project-visual.v6 { background: linear-gradient(135deg, #0d1b2a 0%, #1b4332 100%); }
+
+    .app-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      object-fit: cover;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    .app-icon-pair {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .project-visual .app-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 100px 15vw;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-question {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: var(--orange);
+      margin-bottom: 28px;
+    }
+
+    .contact-desc {
+      font-size: 18px;
+      color: var(--lightgray);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+
+    .contact-link {
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px solid var(--orange);
+      padding-bottom: 4px;
+      display: inline-block;
+      margin-bottom: 48px;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover { color: var(--orange); }
+
+    .contact-socials {
+      display: flex;
+      gap: 24px;
+    }
+
+    .contact-socials a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-socials a:hover { color: var(--orange); }
+
+    .contact-socials svg { width: 28px; height: 28px; fill: currentColor; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: var(--gray);
+      font-size: 13px;
+    }
+
+    /* ── BACK TO TOP ── */
+    .back-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .back-top:hover { background: var(--orange); border-color: var(--orange); color: var(--black); }
+
+    /* Project show/hide — managed by JS tab filter */
+
+    /* ── HERO ENTRANCE ── */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes heroFadeLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .h-anim {
+      opacity: 0;
+      animation: heroFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .h-anim-left {
+      opacity: 0;
+      animation: heroFadeLeft 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .reveal-up.visible { opacity: 1; transform: none; }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.88) translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-scale.visible { opacity: 1; transform: none; }
+
+    /* ── PROJECT MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal-box {
+      background: #1c1c1c;
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 24px;
+      padding: 48px 52px;
+      max-width: 640px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(28px) scale(0.98);
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(245,166,35,0.3) transparent;
+    }
+    .modal-overlay.open .modal-box { transform: none; }
+
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 15px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+      flex-shrink: 0;
+    }
+    .modal-close:hover { background: var(--orange); border-color: var(--orange); color: var(--black); }
+
+    .modal-tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .modal-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .modal-desc {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .modal-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .modal-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 14px;
+    }
+    .modal-feature-item {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 14px;
+      color: var(--lightgray);
+      line-height: 1.65;
+    }
+    .modal-feature-item::before {
+      content: '▸';
+      color: var(--orange);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .modal-feature-item:last-child { border-bottom: none; }
+    .modal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    .project-card[data-modal] { cursor: pointer; }
+    .project-card[data-modal]:hover .project-name { color: var(--orange); transition: color 0.2s; }
+
+    @media (max-width: 600px) {
+      .modal-box { padding: 32px 24px; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links { gap: 24px; }
+      section { padding: 80px 6vw; }
+      #hero { padding: 0 6vw; }
+      .sidebar-left { display: none; }
+      .sidebar-right { display: none; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
+      .project-card { flex-direction: column; margin: 0 4vw 20px; }
+      .project-visual { width: 100% !important; min-height: 200px !important; }
+      .projects-header { padding: 0 6vw; }
+      .project-info { padding: 32px 28px; }
+      #contact { padding: 80px 6vw; }
+    }
+
+    @media (max-width: 520px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 11px; letter-spacing: 1.5px; }
+      .hero-name { letter-spacing: -1px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .project-tabs { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">C</div>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="sidebar-left h-anim-left" style="animation-delay:0.7s">
+      <a href="https://github.com/CongNQ-Dev" target="_blank" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/cong-nguyen-7555a9269/" target="_blank" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      </a>
+      <a href="mailto:congnguyen.working@gmail.com" title="Email">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+    </div>
+
+    <div class="years-badge h-anim" style="animation-delay:0.05s">
+      <span id="hero-years">3</span>+ Years Development Experience
+    </div>
+
+    <div class="hi-line h-anim" style="animation-delay:0.2s">
+      <p>Hi I am</p>
+    </div>
+
+    <h1 class="hero-name h-anim" style="animation-delay:0.35s">Cong Nguyen</h1>
+    <p class="hero-title h-anim" style="animation-delay:0.5s">A Mobile & Full Stack Developer</p>
+    <p class="h-anim" style="margin-top:16px;color:var(--gray);font-size:15px;font-style:italic;letter-spacing:0.5px;animation-delay:0.62s">"Make it work, make it right, make it fast."</p>
+
+    <div class="sidebar-right">Scroll</div>
+    <div class="version">v 1.0.0</div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <p class="skills-main-title">My Tech Stacks</p>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Mobile</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1b2e"><img src="https://cdn.simpleicons.org/flutter/54C5F8" alt="Flutter"></div>Flutter</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a2535"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React Native"></div>React Native</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1530"><img src="https://cdn.simpleicons.org/xcode/147EFB" alt="Xcode"></div>Xcode</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d200d"><img src="https://cdn.simpleicons.org/androidstudio/3DDC84" alt="Android Studio"></div>Android Studio</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1f1050;color:#9b7fff;font-size:9px;font-weight:800">NB</div>NativeBase</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Backend</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#1e1730"><img src="https://cdn.simpleicons.org/php/AEB2D5" alt="PHP"></div>PHP</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d2020;color:#00d4aa;font-size:9px;font-weight:800">WS</div>WebSocket</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#2d1010"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="REST API" onerror="this.parentElement.style.background='#e74c3c';this.parentElement.style.color='#fff';this.parentElement.style.fontSize='9px';this.parentElement.innerHTML='REST'"></div>REST API</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Database</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1e26"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL"></div>MySQL</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1f0d"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB"></div>MongoDB</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1f1500"><img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="Firebase"></div>Firebase</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Tools & Services</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1830"><img src="https://cdn.simpleicons.org/googlemaps/4285F4" alt="Google Maps"></div>Google Maps</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#00246b;color:#fff;font-size:9px;font-weight:800">AGO</div>Agora SDK</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d200d"><img src="https://cdn.simpleicons.org/fastlane/00F200" alt="Fastlane" onerror="this.parentElement.style.background='#1a1a1a';this.parentElement.style.color='#25d366';this.parentElement.style.fontSize='9px';this.parentElement.innerHTML='FL'"></div>Fastlane</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1f10"><svg viewBox="0 0 24 24" width="18" height="18" fill="#43a047"><rect x="8" y="8" width="2" height="8"/><rect x="11" y="10" width="2" height="6"/><rect x="14" y="7" width="2" height="9"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></div>VNPT eKYC</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1f0d0d"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FF7043" stroke-width="1.4" stroke-linecap="round"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><rect x="16" y="16" width="5" height="5" rx="1"/><circle cx="12" cy="9.5" r="1.5" fill="#FF7043" stroke="none"/><path d="M9.5 14c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5"/></svg></div>Face Recognition</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a0020"><svg viewBox="0 0 24 24" width="18" height="18" fill="#9c27b0"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c-.44 0-.83.31-.93.74C16 14.24 14.12 16 12 16s-4-1.76-4.37-4.26c-.1-.43-.49-.74-.93-.74-.61 0-1.07.55-.98 1.15C6.19 15.1 8.83 17.5 12 17.5s5.81-2.4 6.28-5.35c.1-.6-.37-1.15-.98-1.15z"/><path d="M11 20h2v2h-2z"/></svg></div>Speech to Text</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Language</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1f1e"><img src="https://cdn.simpleicons.org/dart/00B4AB" alt="Dart"></div>Dart</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1d0d0d"><img src="https://cdn.simpleicons.org/swift/F05138" alt="Swift"></div>Swift</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1f1c00"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript"></div>JavaScript</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a1000"><img src="https://cdn.simpleicons.org/openjdk/ED8B00" alt="Java"></div>Java</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1826"><img src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++"></div>C / C++</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>AI Tools</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a1a1a"><img src="https://cdn.simpleicons.org/githubcopilot/ffffff" alt="GitHub Copilot"></div>GitHub Copilot</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a0f00"><img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude Code" onerror="this.parentElement.style.background='#1a0f00';this.parentElement.style.color='#f5a623';this.parentElement.style.fontSize='9px';this.parentElement.innerHTML='CC'"></div>Claude Code</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a0505"><svg viewBox="0 0 120 120" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="oc-g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff4d4d"/><stop offset="100%" stop-color="#991b1b"/></linearGradient></defs><path d="M60 10 C30 10 15 35 15 55 C15 75 30 95 45 100 L45 110 L55 110 L55 100 C55 100 60 102 65 100 L65 110 L75 110 L75 100 C90 95 105 75 105 55 C105 35 90 10 60 10Z" fill="url(#oc-g)"/><path d="M20 45 C5 40 0 50 5 60 C10 70 20 65 25 55 C28 48 25 45 20 45Z" fill="url(#oc-g)"/><path d="M100 45 C115 40 120 50 115 60 C110 70 100 65 95 55 C92 48 95 45 100 45Z" fill="url(#oc-g)"/><circle cx="45" cy="35" r="6" fill="#050810"/><circle cx="75" cy="35" r="6" fill="#050810"/><circle cx="46" cy="34" r="2.5" fill="#00e5cc"/><circle cx="76" cy="34" r="2.5" fill="#00e5cc"/></svg></div>OpenClaw</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0a1520"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="12" cy="5" r="2" fill="#61DAFB"/><circle cx="5" cy="17" r="2" fill="#61DAFB"/><circle cx="19" cy="17" r="2" fill="#61DAFB"/><line x1="12" y1="7" x2="5" y2="15" stroke="#61DAFB" stroke-width="1.5"/><line x1="12" y1="7" x2="19" y2="15" stroke="#61DAFB" stroke-width="1.5"/><line x1="5" y1="17" x2="19" y2="17" stroke="#61DAFB" stroke-width="1.5"/></svg></div>MCP</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" style="padding:100px 0">
+    <div class="projects-header">
+      <p class="section-label">Projects</p>
+      <p style="font-size:clamp(16px,2vw,20px);color:var(--lightgray);font-weight:300;margin-top:8px">Driven by design, centered on users, and built for functionality</p>
+    </div>
+
+    <!-- Tab filter -->
+    <div class="project-tabs reveal">
+      <button class="tab-btn active" data-tab="all">All</button>
+      <button class="tab-btn" data-tab="personal">Personal</button>
+    </div>
+
+    <!-- H¹T -->
+    <div class="project-card" data-type="company" data-modal="h1t">
+      <div class="project-info">
+        <h2 class="project-name">H¹T</h2>
+        <p class="project-desc">Office seat reservation app for a satellite shared office network. Features map-based location browsing, booking management, and digital door unlock.</p>
+        <div class="project-tech">
+          <span class="tech-tag">React Native</span>
+          <span class="tech-tag">Google Maps API</span>
+          <span class="tech-tag">MobX</span>
+          <span class="tech-tag">REST API</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://apps.apple.com/jp/app/h-t/id1537360714" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+          <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.nomura.h1t.mobile" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg> CH Play</a>
+        </div>
+      </div>
+      <div class="project-visual v3">
+        <img class="app-icon" src="icon-h1t.webp" alt="H¹T">
+        <span class="app-label">H¹T</span>
+      </div>
+    </div>
+
+    <!-- UP-T Talent & Talk -->
+    <div class="project-card" data-type="company" data-modal="upt-talent">
+      <div class="project-info">
+        <h2 class="project-name">UP-T Talent<br>& UP-T Talk</h2>
+        <p class="project-desc">Fan engagement platform enabling idols and entertainers to host ticketed live events, real-time Agora-powered video calls, chat sessions, 2-shot photography, and digital collectible delivery.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">Agora SDK</span>
+          <span class="tech-tag">WebSocket</span>
+          <span class="tech-tag">Firebase</span>
+          <span class="tech-tag">In-App Purchase</span>
+          <span class="tech-tag">BLoC</span>
+          <span class="tech-tag">Fastlane</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://apps.apple.com/vn/app/up-t-talent/id6444641726" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> Talent iOS</a>
+          <a class="proj-link" href="https://play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk.idol" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg> Talent Android</a>
+          <a class="proj-link" href="https://apps.apple.com/vn/app/up-t-talk-%E3%82%BF%E3%83%AC%E3%83%B3%E3%83%88%E3%81%A8web%E3%81%A7%E7%89%B9%E5%85%B8%E4%BC%9A/id6443553469" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> Talk iOS</a>
+          <a class="proj-link" href="https://play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg> Talk Android</a>
+        </div>
+      </div>
+      <div class="project-visual v2">
+        <div class="app-icon-pair">
+          <img class="app-icon" src="icon-upt-talent.webp" alt="UP-T Talent">
+          <img class="app-icon" src="icon-upt-talk.webp" alt="UP-T Talk">
+        </div>
+        <span class="app-label">UP-T Talent · UP-T Talk</span>
+      </div>
+    </div>
+
+    <!-- UP-T Web -->
+    <div class="project-card" data-type="company" data-modal="upt-web">
+      <div class="project-info">
+        <h2 class="project-name">UP-T Web</h2>
+        <p class="project-desc">Large-scale Japanese custom merchandise e-commerce platform supporting 2,000+ product types, a creator marketplace, online design tool with 3D preview, and multiple payment methods.</p>
+        <div class="project-tech">
+          <span class="tech-tag">PHP</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">REST API</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://up-t.jp" target="_blank">↗ View Site</a>
+        </div>
+      </div>
+      <div class="project-visual v1">
+        <img class="app-icon" src="icon-upt-web.ico" alt="UP-T Web" onerror="this.style.display='none'">
+        <span class="app-label">up-t.jp</span>
+      </div>
+    </div>
+
+    <!-- HD Saison -->
+    <div class="project-card" data-type="company" data-modal="hdsaison">
+      <div class="project-info">
+        <h2 class="project-name">HD Saison</h2>
+        <p class="project-desc">Large-scale consumer loan platform built from scratch. Features biometric authentication, face detection, OCR for identity cards, and eKYC workflows.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">BLoC</span>
+          <span class="tech-tag">Biometric Auth</span>
+          <span class="tech-tag">Face Detection</span>
+          <span class="tech-tag">eKYC / OCR</span>
+          <span class="tech-tag">Firebase</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://apps.apple.com/vn/app/hd-saison/id1589425903" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+          <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.finos.hdsaison&gl=VN" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg> CH Play</a>
+        </div>
+      </div>
+      <div class="project-visual v4">
+        <img class="app-icon" src="icon-hdsaison.webp" alt="HD Saison" style="width:96px;height:96px;border-radius:22px;box-shadow:0 8px 32px rgba(0,0,0,0.5)">
+        <span class="app-label">HD Saison · Consumer Loans</span>
+      </div>
+    </div>
+
+    <!-- Ziip Campus -->
+    <div class="project-card" data-type="company" data-modal="ziip">
+      <div class="project-info">
+        <h2 class="project-name">Ziip Campus</h2>
+        <p class="project-desc">Bus tracking and student attendance app for parents. Real-time location updates with Google Maps and push notification alerts for timely pickup management.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">Google Maps API</span>
+          <span class="tech-tag">Firebase Realtime DB</span>
+          <span class="tech-tag">Push Notifications</span>
+          <span class="tech-tag">BLoC</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://apps.apple.com/us/app/zip-campus/id6751437352?l=vi" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+          <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.zipcampus.co&hl=en_GB" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg> CH Play</a>
+        </div>
+      </div>
+      <div class="project-visual v5">
+        <img class="app-icon" src="icon-ziip.webp" alt="Ziip Campus" onerror="this.style.display='none'">
+        <span class="app-label">Ziip Campus · Bus Tracking</span>
+      </div>
+    </div>
+
+    <!-- Driver Booking -->
+    <div class="project-card" data-type="company" data-modal="driver">
+      <div class="project-info">
+        <h2 class="project-name">Driver Booking App</h2>
+        <p class="project-desc">Cross-platform driver booking app with real-time tracking, integrated MoMo & VNPay payment gateways, and Firebase push notifications for seamless passenger-driver coordination.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">Google Maps API</span>
+          <span class="tech-tag">Socket</span>
+          <span class="tech-tag">Firebase</span>
+          <span class="tech-tag">MoMo</span>
+          <span class="tech-tag">VNPay</span>
+          <span class="tech-tag">GetX</span>
+          <span class="tech-tag">MongoDB</span>
+        </div>
+      </div>
+      <div class="project-visual v6">
+        🚗
+        <span class="app-label">Driver Booking</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="contact-question">Have a question? 🤔</h2>
+    <p class="contact-desc">I'd love to hear from you! Whether you have a question, a project idea, or just want to say hello — drop me a message. I'm always open to new opportunities.</p>
+    <a class="contact-link" href="mailto:congnguyen.working@gmail.com">Contact me</a>
+    <div class="contact-socials">
+      <a href="https://github.com/CongNQ-Dev" target="_blank" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/cong-nguyen-7555a9269/" target="_blank" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      </a>
+      <a href="mailto:congnguyen.working@gmail.com" title="Email">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Copyright by Nguyen Quoc Cong &nbsp;·&nbsp; v 1.0.0
+  </footer>
+
+  <a class="back-top" href="#hero" title="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </a>
+
+  <!-- Project Detail Modal -->
+  <div id="proj-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close-btn">✕</button>
+      <div class="modal-tag" id="modal-tag"></div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-tech" id="modal-tech"></div>
+      <div id="modal-features"></div>
+      <div class="modal-links" id="modal-links"></div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    const PROJECTS = {
+      'upt-web': {
+        tag: 'Web · PHP / MySQL',
+        name: 'UP-T Web',
+        desc: 'Large-scale Japanese custom merchandise e-commerce platform supporting 2,000+ product types, a creator marketplace, online design tool with 3D preview, and multiple payment methods.',
+        tech: ['PHP', 'MySQL', 'REST API'],
+        label: 'Responsibilities',
+        features: [
+          'Backend API maintenance, bug investigation and fixing.',
+          'Database query optimization and schema-related issues.',
+        ],
+        links: [{ label: 'View Site', href: 'https://up-t.jp' }]
+      },
+      'upt-talent': {
+        tag: 'Flutter · iOS & Android',
+        name: 'UP-T Talent & UP-T Talk',
+        desc: 'Fan engagement platform enabling idols and entertainers to host ticketed live events, real-time Agora-powered video calls, chat sessions, 2-shot photography, and digital collectible delivery.',
+        tech: ['Flutter', 'Dart', 'Agora SDK', 'WebSocket', 'Firebase Auth', 'In-App Purchase', 'BLoC', 'Fastlane', 'TestFlight'],
+        label: 'Key Features',
+        features: [
+          'Event creation and scheduling, ticket purchasing, real-time Agora-powered video/audio calls.',
+          'Live chat during events, post-event letter exchange, 2-shot photography sessions.',
+          'Digital merchandise distribution and VIP monthly subscription.',
+          'CI/CD: Delivered iOS via Fastlane + TestFlight, APK builds for QC and release.',
+        ],
+        links: [
+          { label: 'iOS Talent', href: 'https://apps.apple.com/vn/app/up-t-talent/id6444641726' },
+          { label: 'Android Talent', href: 'https://play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk.idol' },
+          { label: 'iOS Talk', href: 'https://apps.apple.com/vn/app/up-t-talk-%E3%82%BF%E3%83%AC%E3%83%B3%E3%83%88%E3%81%A8web%E3%81%A7%E7%89%B9%E5%85%B8%E4%BC%9A/id6443553469' },
+          { label: 'Android Talk', href: 'https://play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk' },
+        ]
+      },
+      'h1t': {
+        tag: 'React Native · iOS & Android',
+        name: 'H¹T',
+        desc: 'Office seat reservation app for a satellite shared office network. Features map-based location browsing, booking management, and digital door unlock.',
+        tech: ['React Native', 'Google Maps API', 'MobX', 'REST API'],
+        label: 'Key Features',
+        features: [
+          'Multi-location map-based seat browsing and reservation management.',
+          'Digital door unlock activated 5 minutes before the reservation start time.',
+          'Member authentication system with personal account login.',
+        ],
+        links: [
+          { label: 'App Store', href: 'https://apps.apple.com/jp/app/h-t/id1537360714' },
+          { label: 'CH Play', href: 'https://play.google.com/store/apps/details?id=com.nomura.h1t.mobile' },
+        ]
+      },
+      'hdsaison': {
+        tag: 'Flutter · iOS & Android',
+        name: 'HD Saison',
+        desc: 'Large-scale consumer loan platform built from scratch. Features biometric authentication, face detection, OCR for identity cards, and eKYC workflows.',
+        tech: ['Flutter', 'BLoC', 'Biometric Auth', 'Face Detection', 'eKYC / OCR', 'Firebase'],
+        label: 'Highlights',
+        features: [
+          'Biometric authentication, face detection for verification, OCR for identity card text recognition.',
+          'Full eKYC workflow — capture, verify, and submit identity documents entirely in-app.',
+          'Handled complex loan application logic with robust error handling and clean architecture.',
+          'Builds: Delivered TestFlight and APK builds for in-house QC and client testing.',
+        ],
+        links: [
+          { label: 'App Store', href: 'https://apps.apple.com/vn/app/hd-saison/id1589425903' },
+          { label: 'CH Play', href: 'https://play.google.com/store/apps/details?id=com.finos.hdsaison&gl=VN' },
+        ]
+      },
+      'ziip': {
+        tag: 'Flutter · iOS & Android',
+        name: 'Ziip Campus',
+        desc: 'Bus tracking and student attendance app for parents. Real-time location updates with Google Maps and push notification alerts for timely pickup management.',
+        tech: ['Flutter', 'Google Maps API', 'Firebase Realtime DB', 'Push Notifications', 'BLoC'],
+        label: 'Key Features',
+        features: [
+          'Real-time bus position tracking displayed on Google Maps.',
+          'Student attendance logging — parents notified when their child boards or exits.',
+          'Firebase Realtime Database for live synchronized bus location data.',
+          'Push notification alerts for pick-up timing and schedule changes.',
+          'Hired specifically for Google Maps API expertise to maintain and extend this product.',
+        ],
+        links: [
+          { label: 'App Store', href: 'https://apps.apple.com/us/app/zip-campus/id6751437352?l=vi' },
+          { label: 'CH Play', href: 'https://play.google.com/store/apps/details?id=com.zipcampus.co&hl=en_GB' },
+        ]
+      },
+      'driver': {
+        tag: 'Flutter · iOS & Android',
+        name: 'Driver Booking App',
+        desc: 'Cross-platform driver booking app with real-time tracking, integrated MoMo & VNPay payment gateways, and Firebase push notifications for seamless passenger-driver coordination.',
+        tech: ['Flutter', 'Dart', 'Google Maps API', 'Socket', 'Firebase', 'MoMo', 'VNPay', 'GetX', 'MongoDB'],
+        label: 'Key Features',
+        features: [
+          'Real-time driver-passenger location tracking via Socket connections.',
+          'Firebase push notifications, authentication, and cloud functions.',
+          'Payment gateway integration: MoMo & VNPay for in-app transactions.',
+          'Builds: Delivered TestFlight and APK builds for QC.',
+        ],
+        links: []
+      },
+    };
+
+    const overlay = document.getElementById('proj-modal');
+    const closeBtn = document.getElementById('modal-close-btn');
+
+    function openModal(id) {
+      const p = PROJECTS[id];
+      if (!p) return;
+      document.getElementById('modal-tag').textContent = p.tag;
+      document.getElementById('modal-title').textContent = p.name;
+      document.getElementById('modal-desc').textContent = p.desc;
+      document.getElementById('modal-tech').innerHTML =
+        p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('');
+      document.getElementById('modal-features').innerHTML =
+        `<div class="modal-section-label">${p.label}</div>` +
+        p.features.map(f => `<div class="modal-feature-item">${f}</div>`).join('');
+      const SVG_IOS = `<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>`;
+      const SVG_AND = `<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg>`;
+      document.getElementById('modal-links').innerHTML =
+        p.links.map(l => {
+          const icon = l.href.includes('apps.apple.com') ? SVG_IOS
+                     : l.href.includes('play.google.com') ? SVG_AND
+                     : '';
+          return `<a class="proj-link" href="${l.href}" target="_blank" rel="noopener">${icon ? icon + ' ' : ''}${l.label}</a>`;
+        }).join('');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    document.querySelectorAll('.project-card[data-modal]').forEach(card => {
+      card.addEventListener('click', e => {
+        if (e.target.closest('a')) return;
+        openModal(card.dataset.modal);
+      });
+    });
+  })();
+  </script>
+
+  <script>
+    // Tab filter
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const tab = btn.dataset.tab;
+        document.querySelectorAll('.project-card').forEach(card => {
+          if (tab === 'all') {
+            card.style.display = 'flex';
+          } else if (tab === 'personal') {
+            card.style.display = card.dataset.type === 'personal' ? 'flex' : 'none';
+          }
+        });
+      });
+    });
+
+    // Smooth active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--orange)' : '';
+      });
+    });
+  </script>
+
+  <script>
+    (function () {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      // Collect all elements to animate, assign classes + delays
+      const toWatch = [];
+
+      ['.skills-main-title', '.projects-header .section-label',
+       '.projects-header p', '.contact-question', '.contact-desc',
+       '.contact-link', '.contact-socials'
+      ].forEach(sel => document.querySelectorAll(sel).forEach(el => {
+        el.classList.add('reveal'); toWatch.push(el);
+      }));
+
+      document.querySelectorAll('.skills-grid .skill-group').forEach((group, gi) => {
+        const h3 = group.querySelector('h3');
+        if (h3) { h3.classList.add('reveal'); h3.style.transitionDelay = (gi * 80) + 'ms'; toWatch.push(h3); }
+        group.querySelectorAll('.skill-item').forEach((item, ii) => {
+          item.classList.add('reveal');
+          item.style.transitionDelay = (gi * 80 + 100 + ii * 60) + 'ms';
+          toWatch.push(item);
+        });
+      });
+
+      document.querySelectorAll('.project-info').forEach(info => {
+        info.classList.add('reveal'); toWatch.push(info);
+        info.querySelectorAll('.tech-tag').forEach((tag, ti) => {
+          tag.classList.add('reveal-up');
+          tag.style.transitionDelay = (90 + ti * 38) + 'ms';
+          toWatch.push(tag);
+        });
+      });
+
+      document.querySelectorAll('.project-visual').forEach(v => {
+        v.classList.add('reveal-scale');
+        v.style.transitionDelay = '130ms';
+        toWatch.push(v);
+      });
+
+      // Double RAF: let browser paint the opacity:0 state BEFORE observing,
+      // so the transition is visible even for elements near the viewport.
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        toWatch.forEach(el => obs.observe(el));
+      }));
+
+      // Hero counter animation (0 → 3)
+      const heroNum = document.getElementById('hero-years');
+      if (heroNum) {
+        const target = parseInt(heroNum.textContent) || 3;
+        heroNum.textContent = '0';
+        let cur = 0;
+        setTimeout(() => {
+          const tick = setInterval(() => {
+            cur++;
+            heroNum.textContent = cur;
+            if (cur >= target) clearInterval(tick);
+          }, 350);
+        }, 500);
+      }
+    })();
+  </script>
+</body>
+</html>
