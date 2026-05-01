@@ -223,8 +223,8 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 0 24px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 32px;
     }
 
     .skill-group h3 {
@@ -240,7 +240,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 0;
+      padding: 12px 0;
       font-size: 14px;
       font-weight: 500;
       color: var(--lightgray);
@@ -1135,8 +1135,8 @@
         p.links.map(l => {
           const icon = l.href.includes('apps.apple.com') ? SVG_IOS
                      : l.href.includes('play.google.com') ? SVG_AND
-                     : '';
-          return `<a class="proj-link" href="${l.href}" target="_blank" rel="noopener">${icon ? icon + ' ' : ''}${l.label}</a>`;
+                     : '↗';
+          return `<a class="proj-link" href="${l.href}" target="_blank" rel="noopener">${icon} ${l.label}</a>`;
         }).join('');
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
