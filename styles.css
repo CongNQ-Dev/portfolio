@@ -206,9 +206,15 @@ section { padding: 60px 15vw; }
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 32px;
+  justify-content: center;
+}
+
+.skill-group {
+  flex: 1 1 140px;
+  max-width: 200px;
 }
 
 .skill-group h3 {
@@ -531,6 +537,19 @@ footer {
 
 .back-top:hover { background: var(--orange); border-color: var(--orange); color: var(--black); }
 
+/* ── HERO ENTRANCE ANIMATIONS ── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: none; }
+}
+
+#hero .sidebar-left { animation: fadeSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both; }
+.years-badge        { animation: fadeSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both; }
+.hi-line            { animation: fadeSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.2s  both; }
+.hero-name          { animation: fadeSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both; }
+.hero-title         { animation: fadeSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.5s  both; }
+.hero-quote         { animation: fadeSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both; }
+
 /* ── SCROLL REVEAL ── */
 .reveal {
   opacity: 0;
@@ -671,7 +690,7 @@ footer {
   #hero { padding: 0 6vw; }
   .sidebar-left { display: none; }
   .sidebar-right { display: none; }
-  .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
+  .skills-grid { gap: 24px; }
   .project-card { flex-direction: column; margin: 0 4vw 20px; }
   .project-visual { width: 100% !important; min-height: 200px !important; }
   .projects-header { padding: 0 6vw; }
@@ -687,7 +706,8 @@ footer {
   .nav-links { gap: 16px; }
   .nav-links a { font-size: 11px; letter-spacing: 1.5px; }
   .hero-name { letter-spacing: -1px; }
-  .skills-grid { grid-template-columns: 1fr; }
+  .skills-grid { gap: 16px; }
+  .skill-group { flex: 1 1 100%; max-width: none; }
   .project-tabs { flex-wrap: wrap; }
 }
 
