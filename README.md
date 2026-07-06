@@ -268,6 +268,86 @@ for a managed search service.
 
 ---
 
+## AI-driven development workflow
+
+This project is set up for Claude Code with custom slash commands and a subagent.
+
+### Where to put skills (slash commands)
+
+| Location | Scope | When to use |
+|---|---|---|
+| `.claude/commands/*.md` | This project only | Project-specific workflows ← already set up here |
+| `~/.claude/commands/*.md` | All your projects | Personal shortcuts you want everywhere |
+
+Each `.md` file becomes a `/filename` command. To add your own:
+
+```markdown
+<!-- .claude/commands/my-command.md -->
+---
+description: One line describing what this does
+---
+
+Instructions for Claude. $ARGUMENTS is replaced with whatever you type after the command name.
+```
+
+### Commands already set up
+
+| Command | What it does |
+|---|---|
+| `/spec <feature>` | Drafts a spec in `docs/specs/` — stops for your review before writing code |
+| `/feature <spec>` | Implements an approved spec inside-out through the layers |
+| `/arch-check` | Greps import statements for clean-architecture violations |
+
+### The workflow
+
+```
+/spec → review → /feature → /arch-check → commit
+```
+
+**Example:**
+```
+/spec add contact form with email notification
+# Claude writes docs/specs/2026-07-06-contact-form.md and stops
+
+/feature docs/specs/2026-07-06-contact-form.md
+# Claude works: schema → domain → infrastructure → application → presentation → app
+# Runs npm run lint + npm run build when done
+
+/arch-check
+# Confirms no layer violations
+
+git add -p && git commit
+```
+
+### Subagents
+
+`.claude/agents/arch-reviewer.md` defines a subagent that reviews diffs for layer violations. Claude Code loads it automatically — no manual invocation needed.
+
+### Spec template
+
+Every feature starts from `docs/specs/TEMPLATE.md`:
+- Problem statement
+- In/out of scope
+- Data model, domain, application, presentation changes
+- Acceptance checklist
+
+Approved specs live in `docs/specs/`. Architecture decisions go in `docs/adr/`.
+
+---
+
+## GitHub — two accounts
+
+This repo belongs to `CongNQ-Dev`. Switch before pushing:
+
+```bash
+gh auth switch -u CongNQ-Dev
+git push origin main
+```
+
+For fully automatic per-repo switching set up SSH keys with host aliases in `~/.ssh/config`.
+
+---
+
 ## Design system reference
 
 All colours are CSS custom properties defined in `src/app/globals.css`:
