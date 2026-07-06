@@ -11,6 +11,8 @@
 export const dynamic = "force-dynamic";
 
 import type { Metadata } from "next";
+import Link from "next/link";
+import PrintButton from "./PrintButton";
 import { getProfile } from "@/application/usecases/getProfile";
 import { profileRepository } from "@/infrastructure/container";
 
@@ -160,10 +162,9 @@ export default async function CvPage() {
 
       {/* Print / back links */}
       <div style={{ textAlign: "center", marginTop: 22, fontSize: "10pt", color: "#666" }}>
-        <a href="/" style={{ color: "#000", textDecoration: "none" }}>Back to Portfolio</a>
+        <Link href="/" style={{ color: "#000", textDecoration: "none" }}>Back to Portfolio</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="javascript:window.print()" style={{ color: "#000", textDecoration: "none" }}>Print / Save as PDF</a>
-      </div>
+        <PrintButton /></div>
     </div>
   );
 }
@@ -248,3 +249,4 @@ function SkillRow({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+
