@@ -1,6 +1,6 @@
 # Portfolio — Monorepo (Next.js + NestJS + PostgreSQL)
 
-A fullstack portfolio site restructured as an **npm workspaces monorepo** with a
+A fullstack portfolio site structured as an **npm workspaces monorepo** with a
 dedicated NestJS backend API and a Next.js frontend that consumes it. The goal is
 not just a working site — it is a codebase you can study and extend as you learn
 fullstack web development.
@@ -28,7 +28,7 @@ apps/api  (NestJS 10, TypeScript strict)
   +-- src/domain/           Entities + repository interfaces (zero deps)
   |
   v
-PostgreSQL (Docker, port 5432)
+PostgreSQL (Docker, port 5433)
 ```
 
 ### Why the split?
@@ -44,19 +44,11 @@ HTTP status codes, and error handling as explicit, first-class concerns.
 
 ### How NestJS DI replaces container.ts
 
-The old single-app had `src/infrastructure/container.ts` which manually wired
-repository interfaces to their Prisma implementations:
+NestJS wires repository interfaces to their Prisma implementations declaratively via
+**feature modules** in `apps/api/src/infrastructure/modules/`:
 
 ```typescript
-// OLD (container.ts)
-export const projectRepository = new PrismaProjectRepository(prisma);
-```
-
-NestJS does the same thing declaratively via **feature modules** in
-`apps/api/src/infrastructure/modules/`:
-
-```typescript
-// NEW (projects.module.ts)
+// projects.module.ts
 @Module({
   providers: [
     { provide: PROJECT_REPOSITORY, useClass: PrismaProjectRepository },
@@ -79,49 +71,62 @@ directly. Swapping the database means changing one line in the module.
 
 - Node.js 20+, Docker Desktop, npm
 
-### Step 1 — Start PostgreSQL
+### Step 1 — Install dependencies
+
+```bash
+npm install
+```
+
+### Step 2 — Start PostgreSQL
 
 ```bash
 npm run db:up
+# Postgres is exposed on localhost:5433 (non-default port to avoid conflicts)
 ```
 
-### Step 2 — Configure environment
+### Step 3 — Configure environment
 
 ```bash
 cp apps/api/.env.example apps/api/.env
 # Defaults match docker-compose.yml — no edits needed for local dev
 ```
 
-### Step 3 — Apply the schema and seed data
+### Step 4 — Apply the schema and seed data
 
 ```bash
-npm run db:migrate   # prisma migrate dev (type "init" when prompted)
+npm run db:migrate   # runs prisma migrate dev
 npm run db:seed      # inserts profile, projects, skills, roadmap, blog posts
 ```
 
-### Step 4 — Run both apps
+### Step 5 — Run both apps
 
 ```bash
 npm run dev
 # NestJS API   → http://localhost:4000/api
 # Swagger docs → http://localhost:4000/api/docs
-# Next.js web  → http://localhost:3000
+# Next.js web  → http://localhost:3000 (moves to :3001 if 3000 is in use)
 ```
+
+> **Note:** If you see a `DATABASE_URL` connection error on first start, run
+> `npm install` from the repo root to ensure the Prisma client is generated.
+> The `PrismaService` force-loads `apps/api/.env` so workspace CWD issues
+> don't interfere.
 
 ---
 
 ## Commands reference
 
-| Command             | What it does                                              |
-|---------------------|-----------------------------------------------------------|
-| `npm run dev`       | Start both apps concurrently (recommended)                |
-| `npm run dev:api`   | Start NestJS API only (port 4000, watch mode)             |
-| `npm run dev:web`   | Start Next.js frontend only (port 3000, HMR)              |
-| `npm run build`     | Production build for both (no DB or API required)         |
-| `npm run lint`      | ESLint both apps                                          |
-| `npm run db:up`     | Start Docker Postgres                                     |
-| `npm run db:migrate`| Apply schema changes                                      |
-| `npm run db:seed`   | Wipe and re-seed all data                                 |
+| Command              | What it does                                              |
+|----------------------|-----------------------------------------------------------|
+| `npm run dev`        | Start both apps concurrently (recommended)                |
+| `npm run dev:api`    | Start NestJS API only (port 4000, watch mode)             |
+| `npm run dev:web`    | Start Next.js frontend only (port 3000, HMR)              |
+| `npm run build`      | Production build for both (no DB or API required)         |
+| `npm run lint`       | ESLint both apps                                          |
+| `npm run db:up`      | Start Docker Postgres                                     |
+| `npm run db:migrate` | Apply schema changes                                      |
+| `npm run db:seed`    | Wipe and re-seed all data                                 |
+| `npm run db:studio`  | Open Prisma Studio at http://localhost:5555               |
 
 ---
 
@@ -171,9 +176,9 @@ portfolio/
 │           ├── lib/api.ts        Typed fetch functions
 │           └── types.ts          Types mirroring API shapes
 │
-├── docker-compose.yml            PostgreSQL
+├── docker-compose.yml            PostgreSQL (port 5433)
 ├── package.json                  Workspace root + shared scripts
-└── legacy/                       Original static HTML (reference only)
+└── docs/                         Specs and architecture decision records
 ```
 
 ---
@@ -225,10 +230,10 @@ Set `API_URL` in Vercel environment variables. Use `prisma migrate deploy` (not
 
 Colours are CSS custom properties in `apps/web/src/app/globals.css`:
 
-| Token              | Value       | Usage                         |
-|--------------------|-------------|-------------------------------|
-| `--color-black`    | `#111111`   | Page background               |
-| `--color-black2`   | `#1a1a1a`   | Card backgrounds              |
-| `--color-orange`   | `#f5a623`   | Accent, CTAs, highlights      |
-| `--color-gray`     | `#888888`   | Secondary text                |
-| `--color-lightgray`| `#cccccc`   | Body text on dark backgrounds |
+| Token               | Value     | Usage                         |
+|---------------------|-----------|-------------------------------|
+| `--color-black`     | `#111111` | Page background               |
+| `--color-black2`    | `#1a1a1a` | Card backgrounds              |
+| `--color-orange`    | `#f5a623` | Accent, CTAs, highlights      |
+| `--color-gray`      | `#888888` | Secondary text                |
+| `--color-lightgray` | `#cccccc` | Body text on dark backgrounds |
