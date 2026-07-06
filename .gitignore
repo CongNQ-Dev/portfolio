@@ -1,2 +1,23 @@
+# Vercel
 .vercel
+
+# Local env files — never commit real credentials
 .env*.local
+.env
+
+# Next.js build output
+.next/
+out/
+
+# Node dependencies
+node_modules/
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+next-env.d.ts
+
+# OS files
+.DS_Store
+
+# Claude Code — personal overrides stay local, shared config is committed
+.claude/settings.local.json
