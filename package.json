@@ -13,7 +13,8 @@
     "lint": "npm run lint --workspace=apps/api && npm run lint --workspace=apps/web",
     "db:up": "docker compose up -d",
     "db:migrate": "npm run db:migrate --workspace=apps/api",
-    "db:seed": "npm run db:seed --workspace=apps/api"
+    "db:seed": "npm run db:seed --workspace=apps/api",
+    "db:studio": "npm run db:studio --workspace=apps/api"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
