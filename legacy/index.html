@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyen Quoc Cong — Portfolio</title>
+  <!-- Preconnect to external domains to reduce DNS/TLS latency -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">C</div>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#ai-workflow">AI</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="roadmap.html">Roadmap</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+      <li><a href="resume.html" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="sidebar-left">
+      <a href="https://github.com/CongNQ-Dev" target="_blank" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/cong-nguyen-7555a9269/" target="_blank" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      </a>
+      <a href="mailto:congnguyen.working@gmail.com" title="Email">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+    </div>
+
+    <div class="years-badge">
+      <span id="hero-years">4</span>+ Years Development Experience
+    </div>
+
+    <div class="hi-line">
+      <p>Hi I am</p>
+    </div>
+
+    <h1 class="hero-name">Cong Nguyen</h1>
+    <p class="hero-title">A Mobile & Full Stack Developer</p>
+    <p class="hero-quote" style="margin-top:16px;color:var(--gray);font-size:15px;font-style:italic;letter-spacing:0.5px">"Make it work, make it right, make it fast."</p>
+
+    <div class="sidebar-right">Scroll</div>
+  </section>
+  <!-- Skills -->
+  <section id="skills">
+    <p class="skills-main-title">My Tech Stacks</p>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Mobile</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1b2e"><img src="icons/flutter.svg" alt="Flutter" loading="lazy"></div>Flutter</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a2535"><img src="icons/react.svg" alt="React Native" loading="lazy"></div>React Native</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1530"><img src="icons/xcode.svg" alt="Xcode" loading="lazy"></div>Xcode</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d200d"><img src="icons/androidstudio.svg" alt="Android Studio" loading="lazy"></div>Android Studio</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1f1050;color:#9b7fff;font-size:9px;font-weight:800">NB</div>NativeBase</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Backend</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1f1c"><img src="icons/fastapi.svg" alt="FastAPI" loading="lazy"></div>FastAPI</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a1030"><img src="icons/dotnet.svg" alt="ASP.NET" onerror="this.parentElement.style.color='#7c3aed';this.parentElement.style.fontSize='8px';this.parentElement.innerHTML='.NET'"></div>ASP.NET Core</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1e1730"><img src="icons/php.svg" alt="PHP" loading="lazy"></div>PHP</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d2020;color:#00d4aa;font-size:9px;font-weight:800">WS</div>WebSocket</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#2d1010;color:#e74c3c;font-size:9px;font-weight:800">REST</div>REST API</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Database</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1626"><img src="icons/postgresql.svg" alt="PostgreSQL" loading="lazy"></div>PostgreSQL</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1a10"><img src="icons/supabase.svg" alt="Supabase" loading="lazy"></div>Supabase</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1e26"><img src="icons/mysql.svg" alt="MySQL" loading="lazy"></div>MySQL</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1f0d"><img src="icons/mongodb.svg" alt="MongoDB" loading="lazy"></div>MongoDB</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1f1500"><img src="icons/firebase.svg" alt="Firebase" loading="lazy"></div>Firebase</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Tools & Services</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1830"><img src="icons/googlemaps.svg" alt="Google Maps" loading="lazy"></div>Google Maps</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#00246b;color:#fff;font-size:9px;font-weight:800">AGO</div>Agora SDK</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d200d"><img src="icons/fastlane.svg" alt="Fastlane" onerror="this.parentElement.style.background='#1a1a1a';this.parentElement.style.color='#25d366';this.parentElement.style.fontSize='9px';this.parentElement.innerHTML='FL'"></div>Fastlane</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1f10"><svg viewBox="0 0 24 24" width="18" height="18" fill="#43a047"><rect x="8" y="8" width="2" height="8"/><rect x="11" y="10" width="2" height="6"/><rect x="14" y="7" width="2" height="9"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></div>VNPT eKYC</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1f0d0d"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FF7043" stroke-width="1.4" stroke-linecap="round"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><rect x="16" y="16" width="5" height="5" rx="1"/><circle cx="12" cy="9.5" r="1.5" fill="#FF7043" stroke="none"/><path d="M9.5 14c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5"/></svg></div>Face Recognition</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a0020"><svg viewBox="0 0 24 24" width="18" height="18" fill="#9c27b0"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c-.44 0-.83.31-.93.74C16 14.24 14.12 16 12 16s-4-1.76-4.37-4.26c-.1-.43-.49-.74-.93-.74-.61 0-1.07.55-.98 1.15C6.19 15.1 8.83 17.5 12 17.5s5.81-2.4 6.28-5.35c.1-.6-.37-1.15-.98-1.15z"/><path d="M11 20h2v2h-2z"/></svg></div>Speech to Text</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Language</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1826"><img src="icons/typescript.svg" alt="TypeScript" loading="lazy"></div>TypeScript</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1f1e"><img src="icons/dart.svg" alt="Dart" loading="lazy"></div>Dart</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a1526"><img src="icons/python.svg" alt="Python" loading="lazy"></div>Python</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a1030;color:#a78bfa;font-size:9px;font-weight:800">C#</div>C#</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1f1c00"><img src="icons/javascript.svg" alt="JavaScript" loading="lazy"></div>JavaScript</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a1200"><img src="icons/java.svg" alt="Java" loading="lazy"></div>Java</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1826"><img src="icons/cplusplus.svg" alt="C++" loading="lazy"></div>C / C++</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Web Frontend</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a2535"><img src="icons/react.svg" alt="React" loading="lazy"></div>React</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0f1020"><img src="icons/vite.svg" alt="Vite" onerror="this.parentElement.style.color='#646CFF';this.parentElement.style.fontSize='9px';this.parentElement.innerHTML='Vite'"></div>Vite</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a1a1a;color:#fff;font-size:8px;font-weight:800">shad</div>shadcn/ui</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0d1530"><img src="icons/antdesign.svg" alt="Ant Design" loading="lazy"></div>Ant Design</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a0d26"><img src="icons/redux.svg" alt="Redux" loading="lazy"></div>Redux</div>
+      </div>
+
+      <div class="skill-group">
+        <h3>AI Tools</h3>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a1a1a"><img src="icons/githubcopilot.svg" alt="GitHub Copilot" loading="lazy"></div>GitHub Copilot</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a0f00"><img src="icons/anthropic.svg" alt="Claude Code" onerror="this.parentElement.style.background='#1a0f00';this.parentElement.style.color='#f5a623';this.parentElement.style.fontSize='9px';this.parentElement.innerHTML='CC'"></div>Claude Code</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#1a0505"><svg viewBox="0 0 120 120" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="oc-g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff4d4d"/><stop offset="100%" stop-color="#991b1b"/></linearGradient></defs><path d="M60 10 C30 10 15 35 15 55 C15 75 30 95 45 100 L45 110 L55 110 L55 100 C55 100 60 102 65 100 L65 110 L75 110 L75 100 C90 95 105 75 105 55 C105 35 90 10 60 10Z" fill="url(#oc-g)"/><path d="M20 45 C5 40 0 50 5 60 C10 70 20 65 25 55 C28 48 25 45 20 45Z" fill="url(#oc-g)"/><path d="M100 45 C115 40 120 50 115 60 C110 70 100 65 95 55 C92 48 95 45 100 45Z" fill="url(#oc-g)"/><circle cx="45" cy="35" r="6" fill="#050810"/><circle cx="75" cy="35" r="6" fill="#050810"/><circle cx="46" cy="34" r="2.5" fill="#00e5cc"/><circle cx="76" cy="34" r="2.5" fill="#00e5cc"/></svg></div>OpenClaw</div>
+        <div class="skill-item"><div class="skill-icon" style="background:#0a1520"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="12" cy="5" r="2" fill="#61DAFB"/><circle cx="5" cy="17" r="2" fill="#61DAFB"/><circle cx="19" cy="17" r="2" fill="#61DAFB"/><line x1="12" y1="7" x2="5" y2="15" stroke="#61DAFB" stroke-width="1.5"/><line x1="12" y1="7" x2="19" y2="15" stroke="#61DAFB" stroke-width="1.5"/><line x1="5" y1="17" x2="19" y2="17" stroke="#61DAFB" stroke-width="1.5"/></svg></div>MCP</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Workflow -->
+  <section id="ai-workflow">
+    <p class="skills-main-title">Working with AI</p>
+    <p class="ai-section-sub">I integrate AI tooling directly into my daily development — from intelligent code assistance to autonomous agent orchestration, AI makes me significantly more productive and capable.</p>
+
+    <div class="ai-grid">
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="skill-icon" style="background:#1a1a1a;width:44px;height:44px;border-radius:10px">
+            <img src="icons/githubcopilot.svg" alt="GitHub Copilot" style="width:26px;height:26px">
+          </div>
+          <div>
+            <h3 class="ai-card-name">GitHub Copilot</h3>
+            <p class="ai-card-role">AI Code Assistant</p>
+          </div>
+        </div>
+        <ul class="ai-list">
+          <li>Inline autocomplete and code generation across Flutter, Dart, JavaScript, and PHP</li>
+          <li>Auto-generates BLoC boilerplate, API models, and unit test stubs</li>
+          <li>Reduces time on repetitive code patterns by 40–60%</li>
+        </ul>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="skill-icon" style="background:#1a0f00;width:44px;height:44px;border-radius:10px;color:#f5a623;font-size:10px;font-weight:800">CC</div>
+          <div>
+            <h3 class="ai-card-name">Claude Code</h3>
+            <p class="ai-card-role">AI Engineering Pair</p>
+          </div>
+        </div>
+        <ul class="ai-list">
+          <li>Architectural decisions, complex debugging, and multi-file refactoring</li>
+          <li>Code review, security analysis, and performance optimization</li>
+          <li>Documentation, test planning, and pull request description generation</li>
+        </ul>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="skill-icon" style="background:#1a0505;width:44px;height:44px;border-radius:10px">
+            <img src="icon-openclaw.svg" alt="OpenClaw" style="width:26px;height:26px">
+          </div>
+          <div>
+            <h3 class="ai-card-name">OpenClaw</h3>
+            <p class="ai-card-role">Personal AI Agent Platform</p>
+          </div>
+        </div>
+        <ul class="ai-list">
+          <li>Orchestrates 15+ autonomous AI agents for productivity, education, and automation</li>
+          <li>Agents handle daily planning, research digests, fitness tracking, language learning, and more</li>
+          <li>Persistent memory system — agents retain context and improve across sessions</li>
+        </ul>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-header">
+          <div class="skill-icon" style="background:#0a1520;width:44px;height:44px;border-radius:10px">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+              <circle cx="12" cy="5" r="2" fill="#61DAFB"/>
+              <circle cx="5" cy="17" r="2" fill="#61DAFB"/>
+              <circle cx="19" cy="17" r="2" fill="#61DAFB"/>
+              <line x1="12" y1="7" x2="5" y2="15" stroke="#61DAFB" stroke-width="1.5"/>
+              <line x1="12" y1="7" x2="19" y2="15" stroke="#61DAFB" stroke-width="1.5"/>
+              <line x1="5" y1="17" x2="19" y2="17" stroke="#61DAFB" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="ai-card-name">MCP</h3>
+            <p class="ai-card-role">Model Context Protocol</p>
+          </div>
+        </div>
+        <ul class="ai-list">
+          <li>Connects AI models to development tools, APIs, file systems, and external data sources</li>
+          <li>Unified integration layer enabling AI agents to act on real systems in real time</li>
+          <li>Powers tool use across all Claude Code and OpenClaw workflows</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ai-stats">
+      <div class="ai-stat">
+        <span class="ai-stat-num">15+</span>
+        <span class="ai-stat-label">AI Agents</span>
+      </div>
+      <div class="ai-stat-divider"></div>
+      <div class="ai-stat">
+        <span class="ai-stat-num">4</span>
+        <span class="ai-stat-label">AI Platforms</span>
+      </div>
+      <div class="ai-stat-divider"></div>
+      <div class="ai-stat">
+        <span class="ai-stat-num">Daily</span>
+        <span class="ai-stat-label">AI-Augmented Workflow</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" style="padding:60px 0">
+    <div class="projects-header">
+      <p class="section-label">Projects</p>
+      <p style="font-size:clamp(16px,2vw,20px);color:var(--lightgray);font-weight:300;margin-top:8px">Driven by design, centered on users, and built for functionality</p>
+    </div>
+
+    <!-- Tab filter -->
+    <div class="project-tabs reveal">
+      <button class="tab-btn active" data-tab="all">All</button>
+      <button class="tab-btn" data-tab="personal">Personal</button>
+    </div>
+
+    <!-- H¹T -->
+    <div class="project-card" data-type="company" data-modal="h1t">
+      <div class="project-info">
+        <h2 class="project-name">H¹T</h2>
+        <p class="project-desc">Office seat reservation app for a satellite shared office network. Features map-based location browsing, booking management, and digital door unlock.</p>
+        <div class="project-tech">
+          <span class="tech-tag">React Native</span>
+          <span class="tech-tag">Google Maps API</span>
+          <span class="tech-tag">MobX</span>
+          <span class="tech-tag">REST API</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://apps.apple.com/jp/app/h-t/id1537360714" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+          <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.nomura.h1t.mobile" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg> CH Play</a>
+        </div>
+      </div>
+      <div class="project-visual v3">
+        <img class="app-icon" src="icon-h1t.webp" alt="H¹T">
+        <span class="app-label">H¹T</span>
+      </div>
+    </div>
+
+    <!-- UP-T Talent -->
+    <div class="project-card" data-type="company" data-modal="upt-talent">
+      <div class="project-info">
+        <h2 class="project-name">UP-T Talent</h2>
+        <p class="project-desc">Talent-side app for idols and entertainers to create events, manage fan sessions, and host real-time Agora-powered video calls. Includes fan request system and post-event letter exchange.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">Agora SDK</span>
+          <span class="tech-tag">WebSocket</span>
+          <span class="tech-tag">Firebase</span>
+          <span class="tech-tag">BLoC</span>
+          <span class="tech-tag">Fastlane</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://apps.apple.com/vn/app/up-t-talent/id6444641726" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+          <a class="proj-link" href="https://play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk.idol" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg> CH Play</a>
+        </div>
+      </div>
+      <div class="project-visual v4">
+        <img class="app-icon" src="icon-upt-talent.webp" alt="UP-T Talent" style="width:96px;height:96px;border-radius:22px;box-shadow:0 8px 32px rgba(0,0,0,0.5)">
+        <span class="app-label">UP-T Talent · Idol Events</span>
+      </div>
+    </div>
+
+    <!-- UP-T Talk -->
+    <div class="project-card" data-type="company" data-modal="upt-talk">
+      <div class="project-info">
+        <h2 class="project-name">UP-T Talk</h2>
+        <p class="project-desc">Fan-facing app to join ticketed live video events with idols, enjoy 2-shot photography sessions, receive digital collectibles, and subscribe to VIP plans for unlimited access to past talks.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">Agora SDK</span>
+          <span class="tech-tag">WebSocket</span>
+          <span class="tech-tag">Firebase</span>
+          <span class="tech-tag">In-App Purchase</span>
+          <span class="tech-tag">BLoC</span>
+          <span class="tech-tag">Fastlane</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://apps.apple.com/vn/app/up-t-talk-%E3%82%BF%E3%83%AC%E3%83%B3%E3%83%88%E3%81%A8web%E3%81%A7%E7%89%B9%E5%85%B8%E4%BC%9A/id6443553469" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+          <a class="proj-link" href="https://play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg> CH Play</a>
+        </div>
+      </div>
+      <div class="project-visual v4">
+        <img class="app-icon" src="icon-upt-talk.webp" alt="UP-T Talk" style="width:96px;height:96px;border-radius:22px;box-shadow:0 8px 32px rgba(0,0,0,0.5)">
+        <span class="app-label">UP-T Talk · Fan Engagement</span>
+      </div>
+    </div>
+
+    <!-- UP-T Web -->
+    <div class="project-card" data-type="company" data-modal="upt-web">
+      <div class="project-info">
+        <h2 class="project-name">UP-T Web</h2>
+        <p class="project-desc">Large-scale Japanese custom merchandise e-commerce platform supporting 2,000+ product types, a creator marketplace, online design tool with 3D preview, and multiple payment methods.</p>
+        <div class="project-tech">
+          <span class="tech-tag">PHP</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">REST API</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://up-t.jp" target="_blank">View Site</a>
+        </div>
+      </div>
+      <div class="project-visual v1">
+        <img class="app-icon" src="icon-upt-web.ico" alt="UP-T Web" onerror="this.style.display='none'">
+        <span class="app-label">up-t.jp</span>
+      </div>
+    </div>
+
+    <!-- HD Saison -->
+    <div class="project-card" data-type="company" data-modal="hdsaison">
+      <div class="project-info">
+        <h2 class="project-name">HD Saison</h2>
+        <p class="project-desc">Large-scale consumer loan platform built from scratch. Features biometric authentication, face detection, OCR for identity cards, and eKYC workflows.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">BLoC</span>
+          <span class="tech-tag">Biometric Auth</span>
+          <span class="tech-tag">Face Detection</span>
+          <span class="tech-tag">eKYC / OCR</span>
+          <span class="tech-tag">Firebase</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://apps.apple.com/vn/app/hd-saison/id1589425903" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+          <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.finos.hdsaison&gl=VN" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg> CH Play</a>
+        </div>
+      </div>
+      <div class="project-visual v4">
+        <img class="app-icon" src="icon-hdsaison.webp" alt="HD Saison" style="width:96px;height:96px;border-radius:22px;box-shadow:0 8px 32px rgba(0,0,0,0.5)">
+        <span class="app-label">HD Saison · Consumer Loans</span>
+      </div>
+    </div>
+
+    <!-- Ziip Campus -->
+    <div class="project-card" data-type="company" data-modal="ziip">
+      <div class="project-info">
+        <h2 class="project-name">Ziip Campus</h2>
+        <p class="project-desc">Bus tracking and student attendance app for parents. Real-time location updates with Google Maps and push notification alerts for timely pickup management.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">Google Maps API</span>
+          <span class="tech-tag">Firebase Realtime DB</span>
+          <span class="tech-tag">Push Notifications</span>
+          <span class="tech-tag">BLoC</span>
+        </div>
+        <div class="project-links">
+          <a class="proj-link" href="https://apps.apple.com/us/app/zip-campus/id6751437352?l=vi" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store</a>
+          <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.zipcampus.co&hl=en_GB" target="_blank"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg> CH Play</a>
+        </div>
+      </div>
+      <div class="project-visual v5">
+        <img class="app-icon" src="icon-ziip.webp" alt="Ziip Campus" onerror="this.style.display='none'">
+        <span class="app-label">Ziip Campus · Bus Tracking</span>
+      </div>
+    </div>
+
+    <!-- Driver Booking -->
+    <div class="project-card" data-type="company" data-modal="driver">
+      <div class="project-info">
+        <h2 class="project-name">Driver Booking App</h2>
+        <p class="project-desc">Cross-platform driver booking app with real-time tracking, integrated MoMo & VNPay payment gateways, and Firebase push notifications for seamless passenger-driver coordination.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">Google Maps API</span>
+          <span class="tech-tag">Socket</span>
+          <span class="tech-tag">Firebase</span>
+          <span class="tech-tag">MoMo</span>
+          <span class="tech-tag">VNPay</span>
+          <span class="tech-tag">GetX</span>
+          <span class="tech-tag">MongoDB</span>
+        </div>
+      </div>
+      <div class="project-visual v6">
+        🚗
+        <span class="app-label">Driver Booking</span>
+      </div>
+    </div>
+
+    <!-- HR Web -->
+    <div class="project-card" data-type="company" data-modal="hr-web">
+      <div class="project-info">
+        <h2 class="project-name">HR Web</h2>
+        <p class="project-desc">Full-stack eOffice HR management system covering employee records, leave management, performance reviews, and automated offer letter generation — deployed on AWS ECS.</p>
+        <div class="project-tech">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">ASP.NET Core</span>
+          <span class="tech-tag">Redux</span>
+          <span class="tech-tag">Ant Design</span>
+          <span class="tech-tag">AWS ECS</span>
+        </div>
+      </div>
+      <div class="project-visual v6">
+        <img class="app-icon" src="icon-hr.svg" alt="HR Web">
+        <span class="app-label">HR Web · eOffice</span>
+      </div>
+    </div>
+
+    <!-- Beaverly -->
+    <div class="project-card" data-type="company" data-modal="beaverly">
+      <div class="project-info">
+        <h2 class="project-name">Beaverly</h2>
+        <p class="project-desc">AI-powered SR&amp;ED (Scientific Research &amp; Experimental Development) claim management platform with OpenAI integration, a multi-tenant client workspace, and an admin evidence tracking panel.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Supabase</span>
+          <span class="tech-tag">OpenAI</span>
+          <span class="tech-tag">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="project-visual v6">
+        <img class="app-icon" src="icon-beaverly.png" alt="Beaverly" style="width:96px;height:96px;border-radius:22px;box-shadow:0 8px 32px rgba(0,0,0,0.5);background:#fff;padding:8px;object-fit:contain">
+        <span class="app-label">Beaverly · SR&amp;ED Platform</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="contact-question">Have a question? 🤔</h2>
+    <p class="contact-desc">I'd love to hear from you! Whether you have a question, a project idea, or just want to say hello — drop me a message. I'm always open to new opportunities.</p>
+    <a class="contact-link" href="mailto:congnguyen.working@gmail.com">Contact me</a>
+    <div class="contact-socials">
+      <a href="https://github.com/CongNQ-Dev" target="_blank" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/cong-nguyen-7555a9269/" target="_blank" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      </a>
+      <a href="mailto:congnguyen.working@gmail.com" title="Email">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Copyright by Nguyen Quoc Cong &nbsp;·&nbsp; v 1.0.0
+  </footer>
+
+  <a class="back-top" href="#hero" title="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </a>
+
+  <!-- Project Detail Modal -->
+  <div id="proj-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close-btn">✕</button>
+      <div class="modal-tag" id="modal-tag"></div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-tech" id="modal-tech"></div>
+      <div id="modal-features"></div>
+      <div class="modal-links" id="modal-links"></div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    const PROJECTS = {
+      'upt-web': {
+        tag: 'Web · PHP / MySQL',
+        name: 'UP-T Web',
+        desc: 'Large-scale Japanese custom merchandise e-commerce platform supporting 2,000+ product types, a creator marketplace, online design tool with 3D preview, and multiple payment methods.',
+        tech: ['PHP', 'MySQL', 'REST API'],
+        label: 'Responsibilities',
+        features: [
+          'Backend API maintenance, bug investigation and fixing.',
+          'Database query optimization and schema-related issues.',
+        ],
+        links: [{ label: 'View Site', href: 'https://up-t.jp' }]
+      },
+      'upt-talent': {
+        tag: 'Flutter · iOS & Android',
+        name: 'UP-T Talent',
+        desc: 'Talent-side app for idols and entertainers to create events, manage fan sessions, and host real-time Agora-powered video calls. Includes fan request system and post-event letter exchange.',
+        tech: ['Flutter', 'Dart', 'Agora SDK', 'WebSocket', 'Firebase', 'BLoC', 'Fastlane', 'TestFlight'],
+        label: 'Key Features',
+        features: [
+          'Event creation and scheduling with ticket management for fan participation.',
+          'Real-time Agora-powered video/audio sessions and live WebSocket chat during events.',
+          'Fan request system — fans can propose events at times matching their availability.',
+          'Post-event letter exchange; CI/CD via Fastlane + TestFlight and Android APK builds.',
+        ],
+        links: [
+          { label: 'App Store', href: 'https://apps.apple.com/vn/app/up-t-talent/id6444641726' },
+          { label: 'CH Play', href: 'https://play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk.idol' },
+        ]
+      },
+      'upt-talk': {
+        tag: 'Flutter · iOS & Android',
+        name: 'UP-T Talk',
+        desc: 'Fan-facing app to join ticketed live video events with idols, enjoy 2-shot photography sessions, receive digital collectibles, and subscribe to VIP plans for unlimited access to past talks.',
+        tech: ['Flutter', 'Dart', 'Agora SDK', 'WebSocket', 'Firebase', 'In-App Purchase', 'BLoC', 'Fastlane', 'TestFlight'],
+        label: 'Key Features',
+        features: [
+          'Browse and join ticketed live video/audio events hosted by idols and entertainers.',
+          '2-shot photography sessions and digital collectible delivery after talks.',
+          'VIP monthly subscription (In-App Purchase) for unlimited access to past talk recordings.',
+          'Fan request system to schedule events with favourite idols.',
+        ],
+        links: [
+          { label: 'App Store', href: 'https://apps.apple.com/vn/app/up-t-talk-%E3%82%BF%E3%83%AC%E3%83%B3%E3%83%88%E3%81%A8web%E3%81%A7%E7%89%B9%E5%85%B8%E4%BC%9A/id6443553469' },
+          { label: 'CH Play', href: 'https://play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk' },
+        ]
+      },
+      'h1t': {
+        tag: 'React Native · iOS & Android',
+        name: 'H¹T',
+        desc: 'Office seat reservation app for a satellite shared office network. Features map-based location browsing, booking management, and digital door unlock.',
+        tech: ['React Native', 'Google Maps API', 'MobX', 'REST API'],
+        label: 'Key Features',
+        features: [
+          'Multi-location map-based seat browsing and reservation management.',
+          'Digital door unlock activated 5 minutes before the reservation start time.',
+          'Member authentication system with personal account login.',
+        ],
+        links: [
+          { label: 'App Store', href: 'https://apps.apple.com/jp/app/h-t/id1537360714' },
+          { label: 'CH Play', href: 'https://play.google.com/store/apps/details?id=com.nomura.h1t.mobile' },
+        ]
+      },
+      'hdsaison': {
+        tag: 'Flutter · iOS & Android',
+        name: 'HD Saison',
+        desc: 'Large-scale consumer loan platform built from scratch. Features biometric authentication, face detection, OCR for identity cards, and eKYC workflows.',
+        tech: ['Flutter', 'BLoC', 'Biometric Auth', 'Face Detection', 'eKYC / OCR', 'Firebase'],
+        label: 'Highlights',
+        features: [
+          'Biometric authentication, face detection for verification, OCR for identity card text recognition.',
+          'Full eKYC workflow — capture, verify, and submit identity documents entirely in-app.',
+          'Handled complex loan application logic with robust error handling and clean architecture.',
+          'Builds: Delivered TestFlight and APK builds for in-house QC and client testing.',
+        ],
+        links: [
+          { label: 'App Store', href: 'https://apps.apple.com/vn/app/hd-saison/id1589425903' },
+          { label: 'CH Play', href: 'https://play.google.com/store/apps/details?id=com.finos.hdsaison&gl=VN' },
+        ]
+      },
+      'ziip': {
+        tag: 'Flutter · iOS & Android',
+        name: 'Ziip Campus',
+        desc: 'Bus tracking and student attendance app for parents. Real-time location updates with Google Maps and push notification alerts for timely pickup management.',
+        tech: ['Flutter', 'Google Maps API', 'Firebase Realtime DB', 'Push Notifications', 'BLoC'],
+        label: 'Key Features',
+        features: [
+          'Real-time bus position tracking displayed on Google Maps.',
+          'Student attendance logging — parents notified when their child boards or exits.',
+          'Firebase Realtime Database for live synchronized bus location data.',
+          'Push notification alerts for pick-up timing and schedule changes.',
+          'Hired specifically for Google Maps API expertise to maintain and extend this product.',
+        ],
+        links: [
+          { label: 'App Store', href: 'https://apps.apple.com/us/app/zip-campus/id6751437352?l=vi' },
+          { label: 'CH Play', href: 'https://play.google.com/store/apps/details?id=com.zipcampus.co&hl=en_GB' },
+        ]
+      },
+      'driver': {
+        tag: 'Flutter · iOS & Android',
+        name: 'Driver Booking App',
+        desc: 'Cross-platform driver booking app with real-time tracking, integrated MoMo & VNPay payment gateways, and Firebase push notifications for seamless passenger-driver coordination.',
+        tech: ['Flutter', 'Dart', 'Google Maps API', 'Socket', 'Firebase', 'MoMo', 'VNPay', 'GetX', 'MongoDB'],
+        label: 'Key Features',
+        features: [
+          'Real-time driver-passenger location tracking via Socket connections.',
+          'Firebase push notifications, authentication, and cloud functions.',
+          'Payment gateway integration: MoMo & VNPay for in-app transactions.',
+          'Builds: Delivered TestFlight and APK builds for QC.',
+        ],
+        links: []
+      },
+      'hr-web': {
+        tag: 'Web · React / TypeScript / .NET',
+        name: 'HR Web',
+        desc: 'Full-stack eOffice HR management system covering employee records, leave management, performance reviews, and automated offer letter generation — deployed on AWS ECS.',
+        tech: ['React 18', 'TypeScript', 'Redux', 'Ant Design', 'ASP.NET Core', 'C#', '.NET 8', 'AWS ECS', 'i18next', 'jsPDF'],
+        label: 'Key Features',
+        features: [
+          'Employee management, absence/leave tracking, and performance review workflows.',
+          'Automated offer letter generation for full-time, part-time, intern, and consultant roles.',
+          'Rich text editing, drag-and-drop UI, PDF/Word export, and multi-language (i18next) support.',
+          'Backend deployed on AWS ECS via Bitbucket Pipelines CI/CD.',
+        ],
+        links: []
+      },
+      'beaverly': {
+        tag: 'Web · Python / FastAPI / React',
+        name: 'Beaverly',
+        desc: 'AI-powered SR&ED (Scientific Research & Experimental Development) claim management platform with OpenAI integration, a multi-tenant client workspace, and an admin evidence tracking panel.',
+        tech: ['Python', 'FastAPI', 'PostgreSQL', 'Supabase', 'OpenAI API', 'Docker', 'React', 'TypeScript', 'Vite', 'shadcn-ui', 'Tailwind CSS', 'Zustand'],
+        label: 'Key Features',
+        features: [
+          'AI-assisted SR&ED claim analysis and classification using OpenAI API with tiktoken and hdbscan clustering.',
+          'Admin platform (core-platform-ui): client management, R&D initiative tracking, and evidence review.',
+          'Client workspace (beaverly-workspace): project collaboration and evidence submission portal.',
+          'FastAPI backend with PostgreSQL/Supabase, async message queues (aio-pika), JWT auth, and Docker deployment.',
+        ],
+        links: []
+      },
+    };
+
+    const overlay = document.getElementById('proj-modal');
+    const closeBtn = document.getElementById('modal-close-btn');
+
+    function openModal(id) {
+      const p = PROJECTS[id];
+      if (!p) return;
+      document.getElementById('modal-tag').textContent = p.tag;
+      document.getElementById('modal-title').textContent = p.name;
+      document.getElementById('modal-desc').textContent = p.desc;
+      document.getElementById('modal-tech').innerHTML =
+        p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('');
+      document.getElementById('modal-features').innerHTML =
+        `<div class="modal-section-label">${p.label}</div>` +
+        p.features.map(f => `<div class="modal-feature-item">${f}</div>`).join('');
+      const SVG_IOS = `<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>`;
+      const SVG_AND = `<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.18 23.76c.31.17.67.19 1.01.04l12.44-7.19-2.87-2.87-10.58 10.02zm-1.48-20.9c-.12.24-.19.52-.19.83v18.62c0 .31.07.59.19.83l.09.09L13.5 11.33v-.27L1.79 2.77l-.09.09zM22.17 10.07l-2.89-1.67-3.25 3.25 3.25 3.25 2.9-1.68c.82-.48.82-1.66-.01-2.15zM4.19.24L16.63 7.43l-2.87 2.87L3.19.28c.34-.15.7-.13 1 .04v-.08z"/></svg>`;
+      document.getElementById('modal-links').innerHTML =
+        p.links.map(l => {
+          const icon = l.href.includes('apps.apple.com') ? SVG_IOS
+                     : l.href.includes('play.google.com') ? SVG_AND
+                     : '';
+          return `<a class="proj-link" href="${l.href}" target="_blank" rel="noopener">${icon ? icon + ' ' : ''}${l.label}</a>`;
+        }).join('');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    document.querySelectorAll('.project-card[data-modal]').forEach(card => {
+      card.addEventListener('click', e => {
+        if (e.target.closest('a')) return;
+        openModal(card.dataset.modal);
+      });
+    });
+  })();
+  </script>
+
+  <script>
+    // Tab filter
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const tab = btn.dataset.tab;
+        document.querySelectorAll('.project-card').forEach(card => {
+          if (tab === 'all') {
+            card.style.display = 'flex';
+          } else if (tab === 'personal') {
+            card.style.display = card.dataset.type === 'personal' ? 'flex' : 'none';
+          }
+        });
+      });
+    });
+
+    // Smooth active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--orange)' : '';
+      });
+    });
+  </script>
+
+  <script>
+    (function () {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.transitionDelay = e.target.dataset.delay || '0ms';
+            e.target.classList.add('visible');
+          } else {
+            e.target.style.transitionDelay = '0ms';
+            e.target.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      // Collect all elements to animate, assign classes + delays
+      // Hero elements use CSS @keyframes (fadeSlideUp) — no JS observer needed
+      const toWatch = [];
+
+      ['.skills-main-title', '.ai-section-sub', '.ai-stats', '.projects-header .section-label',
+       '.projects-header p', '.contact-question', '.contact-desc',
+       '.contact-link', '.contact-socials'
+      ].forEach(sel => document.querySelectorAll(sel).forEach(el => {
+        el.classList.add('reveal'); toWatch.push(el);
+      }));
+
+      document.querySelectorAll('.ai-card').forEach((card, i) => {
+        card.classList.add('reveal');
+        const d = (i * 100) + 'ms';
+        card.dataset.delay = d;
+        card.style.transitionDelay = d;
+        toWatch.push(card);
+      });
+
+      document.querySelectorAll('.skills-grid .skill-group').forEach((group, gi) => {
+        const h3 = group.querySelector('h3');
+        if (h3) {
+          h3.classList.add('reveal');
+          const d = (gi * 80) + 'ms';
+          h3.dataset.delay = d;
+          h3.style.transitionDelay = d;
+          toWatch.push(h3);
+        }
+        group.querySelectorAll('.skill-item').forEach((item, ii) => {
+          item.classList.add('reveal');
+          const d = (gi * 80 + 100 + ii * 60) + 'ms';
+          item.dataset.delay = d;
+          item.style.transitionDelay = d;
+          toWatch.push(item);
+        });
+      });
+
+
+      // Double RAF: let browser paint the opacity:0 state BEFORE observing,
+      // so the transition is visible even for elements near the viewport.
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        toWatch.forEach(el => obs.observe(el));
+      }));
+
+      // Hero counter animation — starts after badge fade-in completes (~850ms)
+      const heroNum = document.getElementById('hero-years');
+      if (heroNum) {
+        const target = parseInt(heroNum.textContent) || 4;
+        heroNum.textContent = '0';
+        let cur = 0;
+        setTimeout(() => {
+          const tick = setInterval(() => {
+            cur++;
+            heroNum.textContent = cur;
+            if (cur >= target) clearInterval(tick);
+          }, 120);
+        }, 800);
+      }
+    })();
+  </script>
+</body>
+</html>

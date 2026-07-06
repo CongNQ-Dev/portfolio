@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: portfolio_postgres
+    environment:
+      POSTGRES_USER: portfolio_user
+      POSTGRES_PASSWORD: portfolio_pass
+      POSTGRES_DB: portfolio
+    ports:
+      # Host port 5432 → container port 5432.
+      # Change the host port (left side) if 5432 is already in use on your machine.
+      - "5432:5432"
+    volumes:
+      # Named volume persists data across container restarts.
+      - portfolio_pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  portfolio_pgdata:

@@ -1,0 +1,122 @@
+// Prisma schema — single source of truth for the database structure.
+// Run `npx prisma migrate dev` to apply changes to your local DB.
+// Run `npx prisma studio` to browse data in a GUI.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Profile ─────────────────────────────────────────────────────────────────
+// One row; there is only ever one portfolio owner.
+model Profile {
+  id        String   @id @default(cuid())
+  name      String
+  title     String
+  yearsExp  Int
+  email     String
+  github    String
+  linkedin  String
+  quote     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ─── Skills ──────────────────────────────────────────────────────────────────
+// SkillGroup groups related skills (e.g. "Mobile", "Backend").
+// Skill belongs to a SkillGroup and carries icon metadata.
+model SkillGroup {
+  id        String   @id @default(cuid())
+  name      String   // "Mobile", "Backend", "Database", …
+  order     Int      // display order on the page
+  skills    Skill[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Skill {
+  id           String     @id @default(cuid())
+  name         String     // "Flutter", "React Native", …
+  iconPath     String?    // public path to SVG/image, e.g. "/icons/flutter.svg"
+  iconBg       String?    // CSS background for the icon box, e.g. "#0d1b2e"
+  iconText     String?    // short text to show when there is no image, e.g. "NB"
+  iconColor    String?    // text color for iconText, e.g. "#9b7fff"
+  order        Int
+  skillGroup   SkillGroup @relation(fields: [skillGroupId], references: [id])
+  skillGroupId String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+// ─── Projects ────────────────────────────────────────────────────────────────
+model Project {
+  id            String   @id @default(cuid())
+  slug          String   @unique // URL-safe identifier matching PROJECTS keys
+  tag           String   // "Flutter · iOS & Android", "Web · PHP / MySQL", …
+  name          String
+  desc          String
+  tech          String[] // ["Flutter", "Agora SDK", …]
+  featuresLabel String   // "Key Features" | "Highlights" | "Responsibilities"
+  features      String[] // bullet point strings
+  links         Json     // [{label: string, href: string}]
+  type          String   // "company" | "personal"
+  iconPath      String?  // path to app icon, e.g. "/icon-h1t.webp"
+  visualVariant String?  // "v1"–"v6" — controls the gradient class on the visual panel
+  order         Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ─── Roadmap ─────────────────────────────────────────────────────────────────
+model RoadmapPhase {
+  id        String            @id @default(cuid())
+  number    Int               @unique
+  eta       String            // "Months 1 – 6 · Foundation"
+  title     String
+  goal      String
+  tags      String[]          // tech stack tags for this phase
+  milestone String            // the milestone project description
+  resources RoadmapResource[]
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+}
+
+model RoadmapResource {
+  id      String       @id @default(cuid())
+  dataId  String       @unique // matches the HTML data-id attr, e.g. "p1-cs50"
+  type    ResourceType
+  title   String
+  url     String
+  source  String       // short note about the source
+  order   Int
+  phase   RoadmapPhase @relation(fields: [phaseId], references: [id])
+  phaseId String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+enum ResourceType {
+  video
+  course
+  docs
+  book
+  practice
+}
+
+// ─── Blog Posts ──────────────────────────────────────────────────────────────
+// publishedAt is null when the post is a draft (not shown publicly).
+model Post {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  excerpt     String
+  content     String    // raw Markdown
+  tags        String[]
+  publishedAt DateTime? // null = draft
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}

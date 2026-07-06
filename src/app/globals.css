@@ -1,0 +1,119 @@
+/*
+ * globals.css — Tailwind v4 entry point + design system tokens.
+ *
+ * Tailwind v4 reads @theme to generate utility classes.
+ * CSS custom properties defined here are also available for use in
+ * component styles via var(--color-orange) etc.
+ */
+@import "tailwindcss";
+
+/* ── Design System Tokens ───────────────────────────────────────────────── */
+@theme {
+  /* Brand colors — match the legacy styles.css :root block */
+  --color-black:     #111111;
+  --color-black2:    #1a1a1a;
+  --color-orange:    #f5a623;
+  --color-gray:      #888888;
+  --color-lightgray: #cccccc;
+
+  /* Card tokens */
+  --color-card-bg:         #1a1a1a;
+  --color-card-bg-hover:   #1f1f1f;
+  --color-card-border:     rgba(255,255,255,0.08);
+  --color-card-border-hover: rgba(245,166,35,0.3);
+
+  /* Typography */
+  --font-inter: 'Inter', sans-serif;
+}
+
+/* ── Base resets ────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-inter), sans-serif;
+  background: #111111;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* ── Scroll reveal animation ────────────────────────────────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Project visual gradient panels ─────────────────────────────────────── */
+.visual-v1 { background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 100%); }
+.visual-v2 { background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%); }
+.visual-v3 { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); }
+.visual-v4 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+.visual-v5 { background: linear-gradient(135deg, #2d0b00 0%, #7b2d00 100%); }
+.visual-v6 { background: linear-gradient(135deg, #0d1b2a 0%, #1b4332 100%); }
+
+/* ── Tech tag (shared across skills, projects, roadmap) ─────────────────── */
+.tech-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  color: #cccccc;
+  border: 1px solid rgba(255,255,255,0.1);
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+/* ── Badge types (roadmap resource badges) ───────────────────────────────── */
+.badge {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 4px 9px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.badge-video    { background: rgba(255,0,0,0.14);   color: #ff6b6b; }
+.badge-docs     { background: rgba(97,218,251,0.12); color: #61dafb; }
+.badge-course   { background: rgba(245,166,35,0.14); color: #f5a623; }
+.badge-book     { background: rgba(155,127,255,0.14); color: #9b7fff; }
+.badge-practice { background: rgba(67,160,71,0.16); color: #66bb6a; }
+
+/* ── Blog / prose styles ─────────────────────────────────────────────────── */
+.prose-dark {
+  color: #cccccc;
+  line-height: 1.75;
+}
+.prose-dark h1, .prose-dark h2, .prose-dark h3 { color: #ffffff; margin: 1.5em 0 0.5em; font-weight: 800; }
+.prose-dark h1 { font-size: 2em; }
+.prose-dark h2 { font-size: 1.5em; }
+.prose-dark h3 { font-size: 1.25em; }
+.prose-dark p { margin-bottom: 1em; }
+.prose-dark ul, .prose-dark ol { margin: 0.75em 0 0.75em 1.5em; }
+.prose-dark li { margin-bottom: 0.35em; }
+.prose-dark a { color: #f5a623; text-decoration: underline; }
+.prose-dark code {
+  background: rgba(255,255,255,0.08);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.prose-dark pre {
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 1.25em 1.5em;
+  overflow-x: auto;
+  margin: 1.25em 0;
+}
+.prose-dark pre code { background: none; padding: 0; }
+.prose-dark blockquote {
+  border-left: 3px solid #f5a623;
+  padding-left: 1em;
+  color: #888888;
+  font-style: italic;
+  margin: 1em 0;
+}
+.prose-dark hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 2em 0; }

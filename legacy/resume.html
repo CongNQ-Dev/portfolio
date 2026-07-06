@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyen Quoc Cong — Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11pt;
+      line-height: 1.45;
+      color: #000;
+      background: #fff;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.75in 0.75in;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .header h1 {
+      font-size: 20pt;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .header .contact {
+      font-size: 10pt;
+      color: #000;
+    }
+
+    .header .contact a {
+      color: #000;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-top: 13px;
+    }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 1px;
+      margin-bottom: 8px;
+    }
+
+    /* ── ENTRY (generic two-column header) ── */
+    .entry {
+      margin-bottom: 10px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .entry-org {
+      font-weight: bold;
+      font-size: 11pt;
+      text-transform: uppercase;
+    }
+
+    .entry-location {
+      font-size: 10.5pt;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .entry-role-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+
+    .entry-role {
+      font-style: italic;
+      font-size: 10.5pt;
+    }
+
+    .entry-date {
+      font-size: 10.5pt;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    /* ── PROJECT SUB-ENTRIES ── */
+    .project-entry {
+      margin-bottom: 7px;
+    }
+
+    .project-title {
+      font-style: italic;
+      font-size: 10.5pt;
+      margin-bottom: 2px;
+      font-weight: bold;
+    }
+
+    .project-links {
+      font-size: 9.8pt;
+      margin-top: 1px;
+      margin-bottom: 2px;
+    }
+
+    .project-links a {
+      color: #000;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* ── BULLETS ── */
+    ul.bullets {
+      margin-left: 20px;
+      margin-top: 2px;
+    }
+
+    ul.bullets li {
+      font-size: 10.5pt;
+      line-height: 1.5;
+      margin-bottom: 2px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-row {
+      font-size: 10.5pt;
+      line-height: 1.65;
+      margin-bottom: 2px;
+    }
+
+    .skills-row strong {
+      font-weight: bold;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      font-size: 10pt;
+      color: #666;
+    }
+
+    .back-link a { color: #000; text-decoration: none; }
+
+    @media print {
+      body { padding: 0.5in 0.75in; }
+      .back-link { display: none; }
+      @page { margin: 0.5in; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════ HEADER ════ -->
+  <div class="header">
+    <h1>Nguyen Quoc Cong</h1>
+    <div class="contact">
+      Ho Chi Minh City, Vietnam &nbsp;|&nbsp;
+      <a href="mailto:congnguyen.working@gmail.com">congnguyen.working@gmail.com</a> &nbsp;|&nbsp;
+      <a href="https://github.com/CongNQ-Dev" target="_blank">github.com/CongNQ-Dev</a> &nbsp;|&nbsp;
+      <a href="https://www.linkedin.com/in/cong-nguyen-7555a9269/" target="_blank">linkedin.com/in/cong-nguyen-7555a9269</a> &nbsp;|&nbsp;
+      <a href="https://congnguyen.vercel.app/" target="_blank">congnguyen.vercel.app</a>
+    </div>
+  </div>
+
+  <!-- ════ PROFESSIONAL EXPERIENCE ════ -->
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+
+    <!-- SHIFT ASIA -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-org">Shift Asia</span>
+        <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+      </div>
+      <div class="entry-role-line">
+        <span class="entry-role">Full Stack Engineer &mdash; Full-time &middot; Hybrid</span>
+        <span class="entry-date">April 2025 &ndash; Present</span>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">H&sup1;T &mdash; Office Seat Reservation App <span style="font-weight:normal">(React Native &middot; iOS &amp; Android)</span></div>
+        <ul class="bullets">
+          <li>Built a cross-platform seat reservation app for a satellite shared office network using React Native and MobX</li>
+          <li>Integrated Google Maps API for multi-location browsing; implemented digital door unlock triggered 5 minutes before reservation start</li>
+          <li>Delivered member authentication system with personal account management, live on App Store and Google Play</li>
+        </ul>
+        <div class="project-links">
+          App Store: <a href="https://apps.apple.com/jp/app/h-t/id1537360714" target="_blank">apps.apple.com/app/id1537360714</a><br>
+          CH Play: <a href="https://play.google.com/store/apps/details?id=com.nomura.h1t.mobile" target="_blank">play.google.com/store/apps/details?id=com.nomura.h1t.mobile</a>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">UP-T Web &mdash; Japanese Custom Merchandise Platform <span style="font-weight:normal">(PHP &middot; MySQL &middot; up-t.jp)</span></div>
+        <ul class="bullets">
+          <li>Maintained backend APIs for a large-scale e-commerce platform supporting 2,000+ custom product types</li>
+          <li>Investigated and resolved bugs, optimized database queries, and resolved schema issues in production MySQL environment</li>
+        </ul>
+        <div class="project-links">
+          Website: <a href="https://up-t.jp" target="_blank">up-t.jp</a>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">UP-T Talent &mdash; Idol Event Management App <span style="font-weight:normal">(Flutter &middot; iOS &amp; Android)</span></div>
+        <ul class="bullets">
+          <li>Built talent-side app for idols to create ticketed events, manage fan sessions, and host real-time Agora-powered video/audio calls</li>
+          <li>Integrated WebSocket for live chat, Firebase for push notifications and auth, and post-event letter exchange flow</li>
+          <li>Managed CI/CD pipeline via Fastlane + TestFlight (iOS) and APK release builds (Android)</li>
+        </ul>
+        <div class="project-links">
+          App Store: <a href="https://apps.apple.com/vn/app/up-t-talent/id6444641726" target="_blank">apps.apple.com/app/id6444641726</a><br>
+          CH Play: <a href="https://play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk.idol" target="_blank">play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk.idol</a>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">UP-T Talk &mdash; Fan Engagement App <span style="font-weight:normal">(Flutter &middot; iOS &amp; Android)</span></div>
+        <ul class="bullets">
+          <li>Built fan-facing app for joining ticketed live video events, 2-shot photography sessions, and digital collectible delivery</li>
+          <li>Integrated In-App Purchase for VIP monthly subscriptions and Agora SDK for real-time video/audio</li>
+          <li>Implemented fan request system allowing fans to propose events with their favourite idols</li>
+        </ul>
+        <div class="project-links">
+          App Store: <a href="https://apps.apple.com/vn/app/up-t-talk-%E3%82%BF%E3%83%AC%E3%83%B3%E3%83%88%E3%81%A8web%E3%81%A7%E7%89%B9%E5%85%B8%E4%BC%9A/id6443553469" target="_blank">apps.apple.com/app/id6443553469</a><br>
+          CH Play: <a href="https://play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk" target="_blank">play.google.com/store/apps/details?id=jp.maruiorimono.upt.talk</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FUTURIFY -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-org">Futurify</span>
+        <span class="entry-location">Vietnam</span>
+      </div>
+      <div class="entry-role-line">
+        <span class="entry-role">Full Stack Engineer &mdash; Contract &middot; Remote</span>
+        <span class="entry-date">February 2023 &ndash; April 2026</span>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">Beaverly &mdash; AI-Powered SR&amp;ED Platform <span style="font-weight:normal">(Python &middot; FastAPI &middot; React &middot; TypeScript)</span></div>
+        <ul class="bullets">
+          <li>Built FastAPI backend with PostgreSQL/Supabase, async message queues, JWT auth, and Docker deployment</li>
+          <li>Developed admin panel for client management, R&amp;D initiative tracking, and evidence review using shadcn-ui + Tailwind</li>
+          <li>Built client workspace for project collaboration and evidence submission with Zustand state management</li>
+          <li>Integrated OpenAI API for AI-assisted SR&amp;ED claim analysis and classification</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">HR Web &mdash; eOffice HR Management System <span style="font-weight:normal">(React &middot; TypeScript &middot; ASP.NET Core)</span></div>
+        <ul class="bullets">
+          <li>Built React/TypeScript frontend with Redux, Ant Design, drag-and-drop UI, and multi-language support (i18next)</li>
+          <li>Developed ASP.NET Core (.NET 8) backend with employee management, leave tracking, and performance review modules</li>
+          <li>Implemented automated offer letter generation (full-time, part-time, intern, consultant) with PDF/Word export</li>
+          <li>Deployed backend on AWS ECS via Bitbucket Pipelines CI/CD</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">HD Saison &mdash; Consumer Loan Platform <span style="font-weight:normal">(Flutter &middot; iOS &amp; Android)</span></div>
+        <ul class="bullets">
+          <li>Architected and delivered a large-scale consumer loan application from the ground up using Flutter and BLoC</li>
+          <li>Implemented complete eKYC workflow: biometric authentication, face detection, and OCR for identity card recognition</li>
+          <li>Applied financial-grade error handling and clean architecture to meet strict compliance requirements</li>
+          <li>Automated iOS build pipeline via Fastlane + TestFlight; produced APK builds for Android QC cycles</li>
+        </ul>
+        <div class="project-links">
+          App Store: <a href="https://apps.apple.com/vn/app/hd-saison/id1589425903" target="_blank">apps.apple.com/app/id1589425903</a><br>
+          CH Play: <a href="https://play.google.com/store/apps/details?id=com.finos.hdsaison&gl=VN" target="_blank">play.google.com/store/apps/details?id=com.finos.hdsaison</a>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">Ziip Campus &mdash; Bus Tracking &amp; Student Attendance <span style="font-weight:normal">(Flutter &middot; iOS &amp; Android)</span></div>
+        <ul class="bullets">
+          <li>Maintained real-time bus tracking application using Flutter, Google Maps API, and Firebase Realtime Database</li>
+          <li>Built push notification system alerting parents when their child boards or exits the school bus</li>
+          <li>Synchronized live bus location data for smooth map rendering across concurrent user sessions</li>
+        </ul>
+        <div class="project-links">
+          App Store: <a href="https://apps.apple.com/us/app/zip-campus/id6751437352?l=vi" target="_blank">apps.apple.com/app/id6751437352</a><br>
+          CH Play: <a href="https://play.google.com/store/apps/details?id=com.zipcampus.co&hl=en_GB" target="_blank">play.google.com/store/apps/details?id=com.zipcampus.co</a>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title">Driver Booking App <span style="font-weight:normal">(Flutter &middot; iOS &amp; Android)</span></div>
+        <ul class="bullets">
+          <li>Built real-time driver-passenger coordination app with live tracking via Socket.io and Google Maps API</li>
+          <li>Integrated MoMo and VNPay payment gateways for in-app transactions; used Firebase for authentication and notifications</li>
+          <li>Delivered TestFlight and APK builds through full QC cycle prior to production launch</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ TECHNICAL SKILLS ════ -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-row"><strong>Mobile:</strong> Flutter, React Native, Xcode, Android Studio, NativeBase</div>
+    <div class="skills-row"><strong>State Management:</strong> BLoC, GetX, MobX, Riverpod</div>
+    <div class="skills-row"><strong>Languages:</strong> Dart, Swift, JavaScript, TypeScript, PHP, Java, C/C++</div>
+    <div class="skills-row"><strong>Backend &amp; APIs:</strong> FastAPI, ASP.NET Core, Node.js, REST API, WebSocket</div>
+    <div class="skills-row"><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, Firebase Realtime DB, Cloud Firestore</div>
+    <div class="skills-row"><strong>Cloud &amp; Services:</strong> Firebase (Auth, Push, Functions), AWS ECS, Google Maps API, Agora SDK, VNPT eKYC</div>
+    <div class="skills-row"><strong>DevOps &amp; Tooling:</strong> Fastlane, TestFlight, Docker, Git, GitHub, Bitbucket Pipelines, Vercel</div>
+    <div class="skills-row"><strong>Payments:</strong> MoMo, VNPay, In-App Purchase (Apple / Google)</div>
+    <div class="skills-row"><strong>AI Tools:</strong> GitHub Copilot, Claude Code (Anthropic), OpenClaw, MCP (Model Context Protocol)</div>
+  </div>
+
+  <!-- ════ AI & MODERN WORKFLOW ════ -->
+  <div class="section">
+    <div class="section-title">AI &amp; Modern Workflow Practices</div>
+
+    <div class="entry" style="margin-bottom:8px">
+      <div class="entry-header">
+        <span class="entry-org" style="text-transform:none">GitHub Copilot</span>
+        <span class="entry-date">AI Code Assistant &mdash; Daily Use</span>
+      </div>
+      <ul class="bullets">
+        <li>Inline autocomplete and code generation across Flutter, Dart, JavaScript, and PHP projects</li>
+        <li>Generates BLoC boilerplate, API models, and unit test stubs; reduces repetitive coding effort by 40&ndash;60%</li>
+      </ul>
+    </div>
+
+    <div class="entry" style="margin-bottom:8px">
+      <div class="entry-header">
+        <span class="entry-org" style="text-transform:none">Claude Code (Anthropic)</span>
+        <span class="entry-date">AI Engineering Pair &mdash; Daily Use</span>
+      </div>
+      <ul class="bullets">
+        <li>Supports architectural decisions, multi-file refactoring, complex debugging, and code review across the full stack</li>
+        <li>Generates documentation, security analysis, test plans, and pull request descriptions</li>
+      </ul>
+    </div>
+
+    <div class="entry" style="margin-bottom:8px">
+      <div class="entry-header">
+        <span class="entry-org" style="text-transform:none">OpenClaw &mdash; Personal AI Agent Platform</span>
+        <span class="entry-date">Agent Orchestration &mdash; Daily Use</span>
+      </div>
+      <ul class="bullets">
+        <li>Operates a personal workspace of 15+ autonomous AI agents spanning productivity, learning, and daily automation</li>
+        <li>Persistent cross-session memory enables agents to maintain context and improve over time without manual re-briefing</li>
+      </ul>
+    </div>
+
+    <div class="entry" style="margin-bottom:0">
+      <div class="entry-header">
+        <span class="entry-org" style="text-transform:none">MCP (Model Context Protocol)</span>
+        <span class="entry-date">AI Tool Integration</span>
+      </div>
+      <ul class="bullets">
+        <li>Connects AI models to development tools, APIs, file systems, and external data sources in real time</li>
+        <li>Serves as the unified integration layer enabling AI agents to act on real systems across all workflows</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════ LANGUAGES ════ -->
+  <div class="section">
+    <div class="section-title">Languages</div>
+    <div class="skills-row"><strong>Vietnamese:</strong> Native</div>
+    <div class="skills-row"><strong>English:</strong> Professional proficiency &mdash; reading, writing, and research</div>
+  </div>
+
+  <!-- ════ EDUCATION ════ -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-org">FPT University</span>
+        <span class="entry-location">Ho Chi Minh City, Vietnam</span>
+      </div>
+      <div class="entry-role">Bachelor of Science, Software Engineering</div>
+    </div>
+  </div>
+
+  <div class="back-link">
+    <a href="index.html">Back to Portfolio</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="javascript:window.print()">Print / Save as PDF</a>
+  </div>
+
+</body>
+</html>
