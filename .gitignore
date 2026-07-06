@@ -1,23 +1,29 @@
-# Vercel
+# ── Vercel ────────────────────────────────────────────────────────────────────
 .vercel
 
-# Local env files — never commit real credentials
+# ── Environment variables (never commit real secrets) ─────────────────────────
 .env*.local
 .env
+apps/api/.env
+apps/web/.env
+apps/web/.env.local
 
-# Next.js build output
-.next/
-out/
+# ── Next.js build output ──────────────────────────────────────────────────────
+apps/web/.next/
+apps/web/out/
 
-# Node dependencies
+# ── NestJS build output ───────────────────────────────────────────────────────
+apps/api/dist/
+
+# ── Node dependencies ─────────────────────────────────────────────────────────
 node_modules/
 
-# TypeScript incremental build cache
+# ── TypeScript incremental build caches ───────────────────────────────────────
 *.tsbuildinfo
 next-env.d.ts
 
-# OS files
+# ── OS files ──────────────────────────────────────────────────────────────────
 .DS_Store
 
-# Claude Code — personal overrides stay local, shared config is committed
+# ── Claude Code — personal overrides stay local, shared config is committed ───
 .claude/settings.local.json
