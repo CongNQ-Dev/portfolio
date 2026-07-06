@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Roadmap — Nguyen Quoc Cong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Roadmap page ── */
+    .rm-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 140px 32px 80px;
+    }
+
+    .rm-header { text-align: center; margin-bottom: 24px; }
+
+    .rm-header .section-label {
+      font-size: 13px;
+      color: var(--orange);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .rm-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      margin-top: 12px;
+      letter-spacing: -1px;
+    }
+
+    .rm-sub {
+      color: var(--gray);
+      font-size: 15px;
+      max-width: 640px;
+      margin: 16px auto 0;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* overall progress */
+    .rm-overall {
+      max-width: 560px;
+      margin: 36px auto 0;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 20px 24px;
+    }
+    .rm-overall-top {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-size: 13px; color: var(--lightgray); margin-bottom: 10px;
+    }
+    .rm-overall-top strong { color: var(--orange); font-size: 18px; font-weight: 800; }
+    .rm-bar { height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+    .rm-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #f5a623, #ffcd6b); border-radius: 3px; transition: width 0.4s ease; }
+
+    /* legend */
+    .rm-legend {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+      margin-top: 28px;
+    }
+    .rm-legend .badge { cursor: default; }
+
+    /* timeline */
+    .rm-timeline { margin-top: 64px; position: relative; }
+    .rm-timeline::before {
+      content: '';
+      position: absolute;
+      left: 27px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(245,166,35,0.5), rgba(245,166,35,0.06));
+    }
+
+    .rm-phase {
+      position: relative;
+      padding-left: 84px;
+      margin-bottom: 72px;
+    }
+
+    .rm-phase-num {
+      position: absolute;
+      left: 0; top: 0;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--black2);
+      border: 2px solid rgba(245,166,35,0.45);
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1;
+    }
+
+    .rm-phase-head { margin-bottom: 8px; }
+    .rm-phase-eta {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gray); font-weight: 600;
+    }
+    .rm-phase-title { font-size: clamp(22px, 3vw, 30px); font-weight: 800; margin-top: 4px; }
+    .rm-phase-goal { color: var(--lightgray); font-size: 14px; line-height: 1.7; font-weight: 300; margin-top: 10px; max-width: 760px; }
+
+    .rm-phase-progress { display: flex; align-items: center; gap: 12px; margin-top: 14px; max-width: 320px; }
+    .rm-phase-progress .rm-bar { flex: 1; }
+    .rm-phase-progress span { font-size: 12px; color: var(--gray); white-space: nowrap; }
+
+    .rm-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+    /* resource list */
+    .rm-resources {
+      margin-top: 22px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .rm-res {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.2s;
+    }
+    .rm-res:last-child { border-bottom: none; }
+    .rm-res:hover { background: var(--card-bg-hover); }
+
+    .rm-check {
+      appearance: none;
+      width: 18px; height: 18px;
+      min-width: 18px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .rm-check:checked { background: var(--orange); border-color: var(--orange); }
+    .rm-check:checked::after {
+      content: '✓';
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: #111; font-size: 12px; font-weight: 900;
+    }
+    .rm-res.done .rm-res-title { color: var(--gray); text-decoration: line-through; }
+
+    .badge {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      padding: 4px 9px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .badge.video  { background: rgba(255,0,0,0.14);   color: #ff6b6b; }
+    .badge.docs   { background: rgba(97,218,251,0.12); color: #61dafb; }
+    .badge.course { background: rgba(245,166,35,0.14); color: var(--orange); }
+    .badge.book   { background: rgba(155,127,255,0.14); color: #9b7fff; }
+    .badge.practice { background: rgba(67,160,71,0.16); color: #66bb6a; }
+
+    .rm-res-body { flex: 1; min-width: 0; }
+    .rm-res-title {
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-block;
+    }
+    a.rm-res-title:hover { color: var(--orange); }
+    .rm-res-src { display: block; font-size: 12px; color: var(--gray); margin-top: 2px; font-weight: 300; }
+
+    .rm-res-ext { color: var(--gray); min-width: 14px; }
+    .rm-res:hover .rm-res-ext { color: var(--orange); }
+
+    /* milestone */
+    .rm-milestone {
+      margin-top: 16px;
+      border: 1px dashed rgba(245,166,35,0.4);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 13.5px;
+      color: var(--lightgray);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .rm-milestone strong {
+      color: var(--orange);
+      font-weight: 700;
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    /* footer note */
+    .rm-note {
+      text-align: center;
+      color: var(--gray);
+      font-size: 13px;
+      font-weight: 300;
+      margin-top: -8px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 640px) {
+      .rm-wrap { padding: 120px 18px 60px; }
+      .rm-timeline::before { left: 19px; }
+      .rm-phase { padding-left: 58px; margin-bottom: 56px; }
+      .rm-phase-num { width: 40px; height: 40px; font-size: 15px; }
+      .rm-res { padding: 12px 14px; gap: 10px; flex-wrap: wrap; }
+      .rm-res-src { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="index.html" style="text-decoration:none">C</a>
+    <ul class="nav-links">
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#ai-workflow">AI</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="roadmap.html" style="color:var(--orange)">Roadmap</a></li>
+      <li><a href="resume.html" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+
+  <div class="rm-wrap">
+
+    <!-- Header -->
+    <div class="rm-header">
+      <p class="section-label">Learning Roadmap</p>
+      <h1 class="rm-title">Full Stack → AI Agent Engineer</h1>
+      <p class="rm-sub">
+        My structured 24-month path across six tracks — Full Stack, Server &amp; Backend,
+        DevOps &amp; Cloud, Mathematics, AI/ML Engineering, and AI Agents — built from the
+        best free video courses and official documentation available.
+      </p>
+
+      <div class="rm-overall">
+        <div class="rm-overall-top">
+          <span>Overall Progress</span>
+          <strong id="overall-pct">0%</strong>
+        </div>
+        <div class="rm-bar"><div class="rm-bar-fill" id="overall-bar"></div></div>
+      </div>
+
+      <div class="rm-legend">
+        <span class="badge video">Video</span>
+        <span class="badge course">Course</span>
+        <span class="badge docs">Docs</span>
+        <span class="badge book">Book</span>
+        <span class="badge practice">Practice</span>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="rm-timeline">
+
+      <!-- ═══════════ PHASE 1 ═══════════ -->
+      <div class="rm-phase" data-phase="p1">
+        <div class="rm-phase-num">1</div>
+        <div class="rm-phase-head">
+          <p class="rm-phase-eta">Months 1 – 6 · Foundation</p>
+          <h2 class="rm-phase-title">Full Stack Engineering</h2>
+          <p class="rm-phase-goal">
+            Solidify computer science fundamentals, then master the modern web stack end to end —
+            semantic HTML/CSS, deep JavaScript &amp; TypeScript, React on the frontend, and Node.js on the server.
+          </p>
+          <div class="rm-phase-progress">
+            <div class="rm-bar"><div class="rm-bar-fill"></div></div>
+            <span class="rm-phase-count">0 / 0</span>
+          </div>
+        </div>
+        <div class="rm-tags">
+          <span class="tech-tag">HTML / CSS</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Git</span>
+        </div>
+
+        <div class="rm-resources">
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-cs50">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://cs50.harvard.edu/x/" target="_blank" rel="noopener">CS50x — Introduction to Computer Science</a>
+              <span class="rm-res-src">Harvard · the single best CS foundation course, free with certificate</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-odin">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.theodinproject.com/paths/full-stack-javascript" target="_blank" rel="noopener">The Odin Project — Full Stack JavaScript Path</a>
+              <span class="rm-res-src">Project-based curriculum covering the entire stack, start to finish</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-htmlcss">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=G3e-cpL7ofc" target="_blank" rel="noopener">HTML &amp; CSS Full Course — Beginner to Pro (6.5h)</a>
+              <span class="rm-res-src">SuperSimpleDev · YouTube</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-js">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=PkZNo7MFNFg" target="_blank" rel="noopener">Learn JavaScript — Full Course for Beginners (3.5h)</a>
+              <span class="rm-res-src">freeCodeCamp · YouTube</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-jsinfo">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://javascript.info/" target="_blank" rel="noopener">The Modern JavaScript Tutorial</a>
+              <span class="rm-res-src">javascript.info · the deepest free JS reference, read alongside MDN</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-ts">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=30LWjhZzg50" target="_blank" rel="noopener">Learn TypeScript — Full Tutorial (4.5h)</a>
+              <span class="rm-res-src">freeCodeCamp · YouTube · pair with typescriptlang.org/docs</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-react">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://react.dev/learn" target="_blank" rel="noopener">React — Official "Learn React" Guide</a>
+              <span class="rm-res-src">react.dev · interactive official docs, the canonical way to learn React</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-fso">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://fullstackopen.com/en/" target="_blank" rel="noopener">Full Stack Open — React, Node, GraphQL, TypeScript, CI/CD</a>
+              <span class="rm-res-src">University of Helsinki · the best free modern full-stack course</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-node">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=Oe421EPjeBE" target="_blank" rel="noopener">Node.js &amp; Express — Full Course (8h)</a>
+              <span class="rm-res-src">freeCodeCamp (John Smilga) · YouTube</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-git">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=RGOj5yH7evk" target="_blank" rel="noopener">Git &amp; GitHub for Beginners — Crash Course</a>
+              <span class="rm-res-src">freeCodeCamp · YouTube · then practice at learngitbranching.js.org</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p1-roadmapsh">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://roadmap.sh/full-stack" target="_blank" rel="noopener">roadmap.sh — Full Stack Developer Roadmap</a>
+              <span class="rm-res-src">Visual skill map · use it to track coverage, not as a checklist to fear</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+        </div>
+
+        <div class="rm-milestone">
+          <strong>Milestone Project</strong>
+          Build and deploy a full-stack app (React + TypeScript frontend, Node/Express API, PostgreSQL)
+          with auth, CRUD, and tests — deployed live with a public GitHub repo and README.
+        </div>
+      </div>
+
+      <!-- ═══════════ PHASE 2 ═══════════ -->
+      <div class="rm-phase" data-phase="p2">
+        <div class="rm-phase-num">2</div>
+        <div class="rm-phase-head">
+          <p class="rm-phase-eta">Months 4 – 10 · Depth</p>
+          <h2 class="rm-phase-title">Server &amp; Backend Engineering</h2>
+          <p class="rm-phase-goal">
+            Go beyond CRUD — understand how servers, databases, networks, and operating systems actually work.
+            Learn API design, caching, message queues, and the system design patterns behind large-scale platforms.
+          </p>
+          <div class="rm-phase-progress">
+            <div class="rm-bar"><div class="rm-bar-fill"></div></div>
+            <span class="rm-phase-count">0 / 0</span>
+          </div>
+        </div>
+        <div class="rm-tags">
+          <span class="tech-tag">Python / FastAPI</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Redis</span>
+          <span class="tech-tag">Networking</span>
+          <span class="tech-tag">System Design</span>
+          <span class="tech-tag">Linux</span>
+        </div>
+
+        <div class="rm-resources">
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p2-python">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=rfscVS0vtbw" target="_blank" rel="noopener">Learn Python — Full Course for Beginners (4.5h)</a>
+              <span class="rm-res-src">freeCodeCamp · YouTube · skip ahead if you already know Python basics</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p2-fastapi">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=0sOvCWFmrtA" target="_blank" rel="noopener">Python API Development with FastAPI — Full Course (19h)</a>
+              <span class="rm-res-src">freeCodeCamp · YouTube · covers SQLAlchemy, JWT, testing, deployment, CI</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p2-fastapidocs">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://fastapi.tiangolo.com/tutorial/" target="_blank" rel="noopener">FastAPI — Official Tutorial &amp; User Guide</a>
+              <span class="rm-res-src">fastapi.tiangolo.com · among the best-written docs in the industry</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p2-pg">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=qw--VYLpxG4" target="_blank" rel="noopener">PostgreSQL Tutorial — Full Course for Beginners (4h)</a>
+              <span class="rm-res-src">freeCodeCamp · YouTube · then practice queries at pgexercises.com</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p2-hussein">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/@hnasr" target="_blank" rel="noopener">Hussein Nasser — Backend Engineering Channel</a>
+              <span class="rm-res-src">Deep dives on TCP, HTTP/2-3, connection pooling, DB internals, proxies</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p2-network">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=qiQR5rTSshw" target="_blank" rel="noopener">Computer Networking — Full Course (9h)</a>
+              <span class="rm-res-src">freeCodeCamp · YouTube · OSI model, TCP/IP, DNS, subnetting</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p2-missing">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://missing.csail.mit.edu/" target="_blank" rel="noopener">The Missing Semester of Your CS Education</a>
+              <span class="rm-res-src">MIT · shell, tmux, dotfiles, debugging, profiling — daily-driver skills</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p2-sdp">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener">The System Design Primer</a>
+              <span class="rm-res-src">GitHub · load balancing, caching, sharding, CAP — with exercises</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p2-bytebytego">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/@ByteByteGo" target="_blank" rel="noopener">ByteByteGo — System Design Channel</a>
+              <span class="rm-res-src">Alex Xu · short animated system design explanations</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p2-ddia">
+            <span class="badge book">Book</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://dataintensive.net/" target="_blank" rel="noopener">Designing Data-Intensive Applications</a>
+              <span class="rm-res-src">Martin Kleppmann · THE backend book — read slowly, one chapter a week</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+        </div>
+
+        <div class="rm-milestone">
+          <strong>Milestone Project</strong>
+          Design and build a production-style API: FastAPI + PostgreSQL + Redis cache + background workers
+          (message queue), rate limiting, JWT auth, OpenAPI docs, and load-test results documented in the repo.
+        </div>
+      </div>
+
+      <!-- ═══════════ PHASE 3 ═══════════ -->
+      <div class="rm-phase" data-phase="p3">
+        <div class="rm-phase-num">3</div>
+        <div class="rm-phase-head">
+          <p class="rm-phase-eta">Months 8 – 14 · Operations</p>
+          <h2 class="rm-phase-title">DevOps &amp; Cloud</h2>
+          <p class="rm-phase-goal">
+            Own the full delivery pipeline: Linux, containers, orchestration, infrastructure as code,
+            CI/CD, monitoring, and one cloud provider learned deeply (AWS).
+          </p>
+          <div class="rm-phase-progress">
+            <div class="rm-bar"><div class="rm-bar-fill"></div></div>
+            <span class="rm-phase-count">0 / 0</span>
+          </div>
+        </div>
+        <div class="rm-tags">
+          <span class="tech-tag">Linux</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">Kubernetes</span>
+          <span class="tech-tag">Terraform</span>
+          <span class="tech-tag">CI/CD</span>
+          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">Monitoring</span>
+        </div>
+
+        <div class="rm-resources">
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p3-linux">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://linuxjourney.com/" target="_blank" rel="noopener">Linux Journey — Interactive Linux Fundamentals</a>
+              <span class="rm-res-src">linuxjourney.com · then break into servers at overthewire.org/wargames/bandit</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p3-docker">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=3c-iBn73dDE" target="_blank" rel="noopener">Docker Tutorial for Beginners — Full Course (3h)</a>
+              <span class="rm-res-src">TechWorld with Nana · YouTube · the classic Docker introduction</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p3-k8s">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=X48VuDVv0do" target="_blank" rel="noopener">Kubernetes Tutorial for Beginners — Full Course (4h)</a>
+              <span class="rm-res-src">TechWorld with Nana · YouTube · pods, services, ingress, volumes, helm</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p3-cicd">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=R8_veQiYBjI" target="_blank" rel="noopener">GitHub Actions Tutorial — CI/CD Pipeline</a>
+              <span class="rm-res-src">TechWorld with Nana · YouTube · pair with docs.github.com/actions</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p3-terraform">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=SLB_c_ayRMo" target="_blank" rel="noopener">Terraform Course — Automate AWS Infrastructure (2h)</a>
+              <span class="rm-res-src">freeCodeCamp · YouTube · then developer.hashicorp.com/terraform/tutorials</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p3-aws">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=NhDYbskXRgc" target="_blank" rel="noopener">AWS Certified Cloud Practitioner Course (CLF-C02)</a>
+              <span class="rm-res-src">freeCodeCamp (Andrew Brown) · YouTube · then aim for Solutions Architect Associate</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p3-roadmap">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://roadmap.sh/devops" target="_blank" rel="noopener">roadmap.sh — DevOps Roadmap</a>
+              <span class="rm-res-src">Visual map of the whole DevOps landscape with linked resources</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p3-prom">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://prometheus.io/docs/introduction/overview/" target="_blank" rel="noopener">Prometheus + Grafana — Monitoring &amp; Observability</a>
+              <span class="rm-res-src">prometheus.io / grafana.com · metrics, alerts, dashboards</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p3-sre">
+            <span class="badge book">Book</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://sre.google/sre-book/table-of-contents/" target="_blank" rel="noopener">Google SRE Book — Site Reliability Engineering</a>
+              <span class="rm-res-src">Free online · SLOs, error budgets, toil, incident response</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p3-kodekloud">
+            <span class="badge practice">Practice</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://killercoda.com/" target="_blank" rel="noopener">Killercoda — Free Interactive K8s/Linux Scenarios</a>
+              <span class="rm-res-src">Hands-on browser labs · no local cluster needed</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+        </div>
+
+        <div class="rm-milestone">
+          <strong>Milestone Project</strong>
+          Take the Phase 2 API and productionize it: Dockerize, deploy to Kubernetes with Terraform-provisioned
+          AWS infra, GitHub Actions CI/CD (test → build → deploy), and Prometheus/Grafana dashboards with alerts.
+        </div>
+      </div>
+
+      <!-- ═══════════ PHASE 4 ═══════════ -->
+      <div class="rm-phase" data-phase="p4">
+        <div class="rm-phase-num">4</div>
+        <div class="rm-phase-head">
+          <p class="rm-phase-eta">Months 1 – 14 · Parallel Track (3–4 h/week)</p>
+          <h2 class="rm-phase-title">Mathematics for AI</h2>
+          <p class="rm-phase-goal">
+            Run this alongside everything else. Linear algebra, calculus, probability &amp; statistics —
+            enough to read ML papers and understand what's happening inside a neural network, built
+            on intuition first, formality second.
+          </p>
+          <div class="rm-phase-progress">
+            <div class="rm-bar"><div class="rm-bar-fill"></div></div>
+            <span class="rm-phase-count">0 / 0</span>
+          </div>
+        </div>
+        <div class="rm-tags">
+          <span class="tech-tag">Linear Algebra</span>
+          <span class="tech-tag">Calculus</span>
+          <span class="tech-tag">Probability</span>
+          <span class="tech-tag">Statistics</span>
+          <span class="tech-tag">Optimization</span>
+        </div>
+
+        <div class="rm-resources">
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p4-3b1b-la">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" target="_blank" rel="noopener">Essence of Linear Algebra (16 videos)</a>
+              <span class="rm-res-src">3Blue1Brown · YouTube · vectors, matrices, eigenvalues — pure visual intuition</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p4-3b1b-calc">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr" target="_blank" rel="noopener">Essence of Calculus (12 videos)</a>
+              <span class="rm-res-src">3Blue1Brown · YouTube · derivatives, chain rule, integrals</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p4-strang">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" target="_blank" rel="noopener">MIT 18.06 — Linear Algebra (Gilbert Strang)</a>
+              <span class="rm-res-src">MIT OpenCourseWare · full lectures + problem sets, the legendary course</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p4-khan">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.khanacademy.org/math/statistics-probability" target="_blank" rel="noopener">Khan Academy — Statistics &amp; Probability</a>
+              <span class="rm-res-src">khanacademy.org · exercises included, fill any gaps from calculus too</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p4-statquest">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/@statquest" target="_blank" rel="noopener">StatQuest — Statistics &amp; ML, Clearly Explained</a>
+              <span class="rm-res-src">Josh Starmer · YouTube · start with the "Statistics Fundamentals" playlist</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p4-mml">
+            <span class="badge book">Book</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://mml-book.github.io/" target="_blank" rel="noopener">Mathematics for Machine Learning (free PDF)</a>
+              <span class="rm-res-src">Deisenroth, Faisal, Ong · Cambridge · the bridge from math to ML</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p4-3b1b-nn">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" target="_blank" rel="noopener">Neural Networks series (incl. "But what is a GPT?")</a>
+              <span class="rm-res-src">3Blue1Brown · YouTube · gradient descent &amp; backprop, visually — the bridge to Phase 5</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+        </div>
+
+        <div class="rm-milestone">
+          <strong>Milestone</strong>
+          Implement linear regression and a 2-layer neural network from scratch in NumPy — forward pass,
+          loss, backprop, gradient descent — no ML libraries. If you can do this, the math stuck.
+        </div>
+      </div>
+
+      <!-- ═══════════ PHASE 5 ═══════════ -->
+      <div class="rm-phase" data-phase="p5">
+        <div class="rm-phase-num">5</div>
+        <div class="rm-phase-head">
+          <p class="rm-phase-eta">Months 12 – 20 · Specialization</p>
+          <h2 class="rm-phase-title">AI / ML Engineering</h2>
+          <p class="rm-phase-goal">
+            From classical ML to deep learning to LLMs. Train models, fine-tune transformers,
+            build RAG systems, and learn to ship AI features in production — evaluation, cost, and latency included.
+          </p>
+          <div class="rm-phase-progress">
+            <div class="rm-bar"><div class="rm-bar-fill"></div></div>
+            <span class="rm-phase-count">0 / 0</span>
+          </div>
+        </div>
+        <div class="rm-tags">
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">Transformers</span>
+          <span class="tech-tag">LLMs</span>
+          <span class="tech-tag">RAG</span>
+          <span class="tech-tag">Embeddings</span>
+          <span class="tech-tag">Evals</span>
+        </div>
+
+        <div class="rm-resources">
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p5-karpathy-llm">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank" rel="noopener">Intro to Large Language Models (1h)</a>
+              <span class="rm-res-src">Andrej Karpathy · YouTube · the best 1-hour LLM overview, watch first</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p5-zero2hero">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ" target="_blank" rel="noopener">Neural Networks: Zero to Hero</a>
+              <span class="rm-res-src">Andrej Karpathy · YouTube · build backprop, makemore, and GPT from scratch — do every exercise</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p5-gpt">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" rel="noopener">Let's Build GPT: from scratch, in code (2h)</a>
+              <span class="rm-res-src">Andrej Karpathy · YouTube · code a transformer line by line</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p5-fastai">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://course.fast.ai/" target="_blank" rel="noopener">fast.ai — Practical Deep Learning for Coders</a>
+              <span class="rm-res-src">Jeremy Howard · free · top-down: train real models on day one</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p5-hf">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://huggingface.co/learn" target="_blank" rel="noopener">Hugging Face — LLM, NLP &amp; Agents Courses</a>
+              <span class="rm-res-src">huggingface.co · transformers library, fine-tuning, datasets — free</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p5-pytorch">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://pytorch.org/tutorials/beginner/basics/intro.html" target="_blank" rel="noopener">PyTorch — Official "Learn the Basics" Tutorials</a>
+              <span class="rm-res-src">pytorch.org · tensors, autograd, training loops, saving models</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p5-dlai">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.deeplearning.ai/short-courses/" target="_blank" rel="noopener">DeepLearning.AI — Short Courses (free)</a>
+              <span class="rm-res-src">1-hour courses on RAG, embeddings, evals, fine-tuning, prompt engineering</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p5-anthropic-docs">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://docs.claude.com/" target="_blank" rel="noopener">Claude Docs — Prompt Engineering &amp; Tool Use</a>
+              <span class="rm-res-src">Anthropic · prompting guide, tool use, streaming, evals cookbook</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p5-aiebook">
+            <span class="badge book">Book</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://huyenchip.com/books/" target="_blank" rel="noopener">AI Engineering — Chip Huyen</a>
+              <span class="rm-res-src">O'Reilly · building applications on foundation models: RAG, evals, serving</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+        </div>
+
+        <div class="rm-milestone">
+          <strong>Milestone Project</strong>
+          Ship an end-to-end RAG application: document ingestion → embeddings → vector search → LLM answer
+          with citations, plus an eval harness measuring answer quality — deployed with the DevOps stack from Phase 3.
+        </div>
+      </div>
+
+      <!-- ═══════════ PHASE 6 ═══════════ -->
+      <div class="rm-phase" data-phase="p6">
+        <div class="rm-phase-num">6</div>
+        <div class="rm-phase-head">
+          <p class="rm-phase-eta">Months 18 – 24 · Frontier</p>
+          <h2 class="rm-phase-title">AI Agents</h2>
+          <p class="rm-phase-goal">
+            Build autonomous systems that plan, use tools, and act — single agents, multi-agent orchestration,
+            MCP integrations, memory, and the safety/eval discipline to run them reliably in production.
+          </p>
+          <div class="rm-phase-progress">
+            <div class="rm-bar"><div class="rm-bar-fill"></div></div>
+            <span class="rm-phase-count">0 / 0</span>
+          </div>
+        </div>
+        <div class="rm-tags">
+          <span class="tech-tag">Tool Use</span>
+          <span class="tech-tag">MCP</span>
+          <span class="tech-tag">Claude Agent SDK</span>
+          <span class="tech-tag">LangGraph</span>
+          <span class="tech-tag">Multi-Agent</span>
+          <span class="tech-tag">Memory</span>
+        </div>
+
+        <div class="rm-resources">
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p6-anthropic-agents">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Building Effective Agents</a>
+              <span class="rm-res-src">Anthropic Engineering · workflows vs agents, patterns that actually work — read first</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p6-mcp">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://modelcontextprotocol.io/" target="_blank" rel="noopener">Model Context Protocol (MCP) — Official Docs</a>
+              <span class="rm-res-src">modelcontextprotocol.io · build servers &amp; clients that connect AI to real systems</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p6-agentsdk">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://docs.claude.com/en/api/agent-sdk/overview" target="_blank" rel="noopener">Claude Agent SDK — Build Production Agents</a>
+              <span class="rm-res-src">Anthropic · the SDK behind Claude Code: tools, hooks, subagents, permissions</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p6-langgraph">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://langchain-ai.github.io/langgraph/" target="_blank" rel="noopener">LangGraph — Stateful Agent Orchestration</a>
+              <span class="rm-res-src">LangChain · graphs, state, human-in-the-loop, multi-agent patterns</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p6-hf-agents">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://huggingface.co/learn/agents-course/unit0/introduction" target="_blank" rel="noopener">Hugging Face — AI Agents Course</a>
+              <span class="rm-res-src">Free certified course · agent fundamentals, frameworks, final project</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p6-dlai-agents">
+            <span class="badge course">Course</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.deeplearning.ai/short-courses/" target="_blank" rel="noopener">DeepLearning.AI — Agent Short Courses</a>
+              <span class="rm-res-src">Multi-agent systems, function calling, agent evals, computer use</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p6-karpathy-deep">
+            <span class="badge video">Video</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank" rel="noopener">Deep Dive into LLMs like ChatGPT (3.5h)</a>
+              <span class="rm-res-src">Andrej Karpathy · YouTube · pretraining → SFT → RLHF, hallucinations, tool use</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p6-swarm">
+            <span class="badge docs">Docs</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://platform.openai.com/docs/guides/agents" target="_blank" rel="noopener">OpenAI — A Practical Guide to Building Agents</a>
+              <span class="rm-res-src">platform.openai.com · orchestration, guardrails, handoffs — compare approaches</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+          <div class="rm-res">
+            <input type="checkbox" class="rm-check" data-id="p6-build">
+            <span class="badge practice">Practice</span>
+            <div class="rm-res-body">
+              <a class="rm-res-title" href="https://github.com/anthropics/anthropic-cookbook" target="_blank" rel="noopener">Anthropic Cookbook — Agent &amp; Tool-Use Recipes</a>
+              <span class="rm-res-src">GitHub · runnable notebooks: tool use, RAG, sub-agents, evaluations</span>
+            </div>
+            <span class="rm-res-ext">↗</span>
+          </div>
+        </div>
+
+        <div class="rm-milestone">
+          <strong>Capstone Project</strong>
+          Build a multi-agent system that solves a real problem end to end: a planner agent, specialist worker
+          agents with MCP tool access, persistent memory, an eval suite, and full observability — deployed,
+          documented, and demoed on this portfolio.
+        </div>
+      </div>
+
+    </div>
+
+    <p class="rm-note">
+      Progress is saved locally in your browser. Dates are targets, not deadlines —<br>
+      consistency beats intensity. <em>"Make it work, make it right, make it fast."</em>
+    </p>
+  </div>
+
+  <footer>
+    © 2026 Copyright by Nguyen Quoc Cong &nbsp;·&nbsp; v 1.0.0
+  </footer>
+
+  <a class="back-top" href="#" title="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </a>
+
+  <script>
+    (function () {
+      const KEY = 'roadmap-progress-v1';
+      let state = {};
+      try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { state = {}; }
+
+      const checks = document.querySelectorAll('.rm-check');
+
+      function refresh() {
+        // per-phase
+        document.querySelectorAll('.rm-phase').forEach(phase => {
+          const boxes = phase.querySelectorAll('.rm-check');
+          const done = phase.querySelectorAll('.rm-check:checked').length;
+          const fill = phase.querySelector('.rm-phase-progress .rm-bar-fill');
+          const count = phase.querySelector('.rm-phase-count');
+          if (fill) fill.style.width = (boxes.length ? (done / boxes.length) * 100 : 0) + '%';
+          if (count) count.textContent = done + ' / ' + boxes.length;
+        });
+        // overall
+        const total = checks.length;
+        const done = document.querySelectorAll('.rm-check:checked').length;
+        const pct = total ? Math.round((done / total) * 100) : 0;
+        document.getElementById('overall-pct').textContent = pct + '%';
+        document.getElementById('overall-bar').style.width = pct + '%';
+      }
+
+      checks.forEach(box => {
+        const id = box.dataset.id;
+        if (state[id]) {
+          box.checked = true;
+          box.closest('.rm-res').classList.add('done');
+        }
+        box.addEventListener('change', () => {
+          state[id] = box.checked;
+          box.closest('.rm-res').classList.toggle('done', box.checked);
+          try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+          refresh();
+        });
+      });
+
+      refresh();
+    })();
+  </script>
+</body>
+</html>
