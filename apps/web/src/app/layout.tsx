@@ -38,11 +38,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         {/* Preconnect hints are managed automatically by next/font — nothing extra needed here. */}
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <Nav />
         <main>{children}</main>
         <Footer />

@@ -75,7 +75,7 @@ const NAV_LINKS = [
   { href: "/#skills",      label: "Skills",    target: undefined },
   { href: "/#ai-workflow", label: "AI",        target: undefined },
   { href: "/#projects",    label: "Projects",  target: undefined },
-  { href: "/roadmap",      label: "Roadmap",   target: undefined },
   { href: "/#contact",     label: "Contact",   target: undefined },
   { href: "/cv",           label: "Resume",    target: "_blank" as const },
+  { href: "/roadmap",      label: "Roadmap",   target: undefined },
 ];

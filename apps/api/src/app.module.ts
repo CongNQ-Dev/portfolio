@@ -7,6 +7,7 @@
  *  - Feature modules: each module owns one domain area — its controller,
  *    application service, and repository binding (see infrastructure/modules/)
  */
+import * as path from 'path';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './infrastructure/prisma/prisma.module';
@@ -20,7 +21,11 @@ import { PostsModule } from './infrastructure/modules/posts.module';
   imports: [
     // ConfigModule makes process.env values available via ConfigService
     // throughout the whole application without importing again.
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      // Resolve .env relative to this file so it works regardless of CWD.
+      envFilePath: path.join(__dirname, '..', '.env'),
+    }),
 
     // PrismaModule is @Global() so all feature modules can use PrismaService
     // without explicitly importing PrismaModule themselves.

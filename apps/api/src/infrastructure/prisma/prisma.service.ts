@@ -16,8 +16,14 @@
  *   from the Next.js codebase. NestJS creates exactly one instance per module
  *   scope, so there is no risk of connection pool exhaustion.
  */
+import * as dotenv from 'dotenv';
+import * as path from 'path';
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
+
+// Force-load the workspace .env so a stale shell DATABASE_URL can't win.
+// __dirname = apps/api/src/infrastructure/prisma → three levels up = apps/api
+dotenv.config({ path: path.join(__dirname, '..', '..', '..', '.env'), override: true });
 
 @Injectable()
 export class PrismaService
